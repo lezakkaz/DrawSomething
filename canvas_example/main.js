@@ -1,3 +1,5 @@
+// Paper.js needs to be downloaded in order to run the code
+// TODO:: Setup node.js
 paper.install(window);
 window.onload = function() {
   paper.setup('drawingTool');
