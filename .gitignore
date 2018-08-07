@@ -106,3 +106,6 @@ bin
 
 # mypy
 .mypy_cache/
+
+# external library
+paper-core.js
