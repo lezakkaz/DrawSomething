@@ -47,3 +47,10 @@
 
   #### 5. Run the app
     - $ python3 routes.py
+    
+## ROUTE LIST
+  * #### index.html - /
+    * ##### Just Canvas(?)
+    
+  * #### sketch.html - /sketch
+    * ##### Sketcher Example ( Just CNN Model )
