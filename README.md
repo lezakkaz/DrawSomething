@@ -3,13 +3,6 @@
 
 ## Installation
 
-## Download Paper.js
-  #### 0. Download required file 
-    - paperjs-v0.11.5.zip : http://paperjs.org/download/
-  #### 1. Copy the file
-    - Copy "paper-core.js" from "paperjs-v0.11.5/dist/"
-    - Paste the file into our project "static/js/"
-
 ## Windows
   #### 0. Clone Project
     - $ git clone https://github.com/lezakkaz/DrawSomething.git
