@@ -143,9 +143,9 @@ load the class names
 */
 async function loadDict() {
     if (mode == 'ar')
-        loc = '../static/model_sketch/class_names_ar.txt'
+        loc = '../static/model_cnn/class_names_ar.txt'
     else
-        loc = '../static/model_sketch/class_names.txt'
+        loc = '../static/model_cnn/class_names.txt'
     
     await $.ajax({
         url: loc,
@@ -222,7 +222,7 @@ async function start(cur_mode) {
     mode = cur_mode
     
     //load the model 
-    model = await tf.loadModel('../static/model_sketch/model.json')
+    model = await tf.loadModel('../static/model_cnn/model.json')
     
     //warm up 
     model.predict(tf.zeros([1, 28, 28, 1]))
