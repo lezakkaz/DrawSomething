@@ -1,4 +1,5 @@
 flask
 tensorflowjs
-tensorlfow
+tensorflow
 magenta
+svgwrite
