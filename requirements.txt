@@ -1,2 +1,4 @@
 flask
 tensorflowjs
+tensorlfow
+magenta
