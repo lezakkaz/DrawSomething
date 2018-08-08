@@ -1,5 +1,6 @@
 flask
 tensorflowjs
 tensorflow
-magenta
 svgwrite
+magenta
+requests
