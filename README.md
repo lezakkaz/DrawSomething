@@ -10,6 +10,11 @@
     - Copy "paper-core.js" from "paperjs-v0.11.5/dist/"
     - Paste the file into our project "static/js/"
 
+## Download Fabric.js
+  #### 0. Download required file
+    - fabricjs : https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.3.4/fabric.min.js
+    - Download as fabric.js and move to static/js folder
+    
 ## Windows
   #### 0. Clone Project
     - $ git clone https://github.com/lezakkaz/DrawSomething.git
@@ -61,3 +66,6 @@
     
   * #### sketch.html - /sketch
     * ##### Sketcher Example ( Just CNN Model )
+
+  * #### /auto
+    * ##### Generate Images
