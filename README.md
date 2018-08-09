@@ -36,7 +36,7 @@
     - $ python routes.py
 
 ## Mac OS / Linux
-  #### 0. Clone Bigdue Project
+  #### 0. Clone Project
     - $ git clone https://github.com/lezakkaz/DrawSomething.git
     - $ cd DrawSomething
 
