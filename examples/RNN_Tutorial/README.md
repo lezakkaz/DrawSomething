@@ -20,6 +20,16 @@
     $ python create_dataset.py --ndjson_path rnn_tutorial_dataset \
       --output_path rnn_tutorial_data
 
+### Other Setting
+
+#### you can append other settings
+
+    --ndjson_path       :   Directory where the ndjson files are stored.
+    --output_path       :   Directory where to store the output TFRecord files.
+    --train_observations_per_class  :   How many items per class to load for training.
+    --eval_observations_per_class   :   How many items per class to load for evaluation.
+    --output_shards     :   Number of shards for the output.
+
 ## train_model.py
 
 ### Mac or Linux
@@ -80,7 +90,7 @@
     --cell_type     :   Cell type used for rnn layers: cudnn_lstm, lstm or block_lstm.
     --batch_norm    :   Whether to enable batch normalization or not.
     --learning_rate :   Learning rate used for training.
-    --gradient_clipping_norm : Gradient clipping norm used during training.
+    --gradient_clipping_norm    :   Gradient clipping norm used during training.
     --dropout       :   Dropout used for convolutions and bidi lstm layers.
     --steps         :   Number of training steps.
     --batch_size    :   Batch size to use for training/evaluation.
