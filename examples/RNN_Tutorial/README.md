@@ -60,3 +60,7 @@
         --classes_file=rnn_tutorial_data/training.tfrecord.classes\
         --model_dir=/tmp/quickdraw_model/\
         --cell_type=cudnn_lstm
+
+## How to use Tensorboard
+
+    $ tensorboard --logdir=/tmp/quickdraw_model/eval
