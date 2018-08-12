@@ -100,3 +100,5 @@
 ## How to use Tensorboard
 
     $ tensorboard --logdir=/tmp/quickdraw_model/eval
+
+reference : https://www.tensorflow.org/tutorials/sequences/recurrent_quickdraw#optional_converting_the_data
