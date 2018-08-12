@@ -110,3 +110,8 @@ bin
 # external library
 paper-core.js
 fabric.js
+
+# RNN_Tutorial Data Set
+*.ndjson
+eval.*
+training.*
