@@ -34,9 +34,9 @@ def get_input_fn(mode, tfrecord_pattern, batch_size):
             "shape": tf.FixedLenFeature([2], dtype=tf.int64)
         }
         if mode != tf.estimator.ModeKeys.PREDICT:
-        # The labels won't be available at inference time, so don't add them
-        # to the list of feature_columns to be read.
-        feature_to_type["class_index"] = tf.FixedLenFeature([1], dtype=tf.int64)
+            # The labels won't be available at inference time, so don't add them
+            # to the list of feature_columns to be read.
+            feature_to_type["class_index"] = tf.FixedLenFeature([1], dtype=tf.int64)
 
         parsed_features = tf.parse_single_example(example_proto, feature_to_type)
         labels = None
