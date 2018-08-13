@@ -1,0 +1,49 @@
+body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+#background {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url(resource/background.png);
+}
+#game-wrapper {
+    position: relative;
+    background-color: #FFF;
+    margin: auto;
+    padding-top: 50px;
+    top: 50%;
+    transform: translate(0,-50%);
+    width: 80%;
+    max-width: 1440px;
+    min-width: 1280px;
+    height: 90%;
+    max-height: 824px;
+    min-height: 694px;
+    box-shadow: 0px 1px 10px 1px #555;
+    text-align: center;
+}
+.game-title {
+    width: 100%;
+    height: 278px;
+    margin: auto;
+    font-family: ComicSansMS;
+    font-size: 180px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+    color: var(--black);
+}
+.select-game {
+    display: inline-block;
+}
