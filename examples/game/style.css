@@ -53,11 +53,13 @@ body,html{
     padding: 40px;
 }
 .select-game {
+    position: relative;
     display: inline-block;
     width: 260px;
     height: 260px;
     margin: 0px 10px;
     box-shadow: 0px 1px 3px 1px #888;
+    border-radius: 10px;
     transition: 300ms;
 }
 .active:hover {
@@ -66,4 +68,28 @@ body,html{
 }
 .comming-soon {
     background-color: #888;
+}
+.text-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    max-height: 50%;
+    overflow: hidden;
+    text-align: left;
+    padding: 0px 20px 10px;
+    bottom: 0;
+}
+.game-header {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.game-header span {
+    font-size: 23px;
+}
+.game-description {
+    width: 100%;
+}
+.game-description span {
+    font-size: 15px;
+    color: #aaa;
 }
