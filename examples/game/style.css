@@ -10,6 +10,7 @@ body,html{
 #background {
     width: 100%;
     height: 100%;
+    min-height: 900px;
     background-size: cover;
     background-image: url(resource/background.png);
 }
@@ -34,7 +35,7 @@ body,html{
     height: 278px;
     margin: auto;
     font-family: ComicSansMS;
-    font-size: 180px;
+    font-size: 160px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -44,6 +45,25 @@ body,html{
     color: rgba(0, 0, 0, 0.87);
     color: var(--black);
 }
+.select-box-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 340px;
+    padding: 40px;
+}
 .select-game {
     display: inline-block;
+    width: 260px;
+    height: 260px;
+    margin: 0px 10px;
+    box-shadow: 0px 1px 3px 1px #888;
+    transition: 300ms;
+}
+.active:hover {
+    cursor: pointer;
+    box-shadow: 0px 1px 13px 1px #333;
+}
+.comming-soon {
+    background-color: #888;
 }
