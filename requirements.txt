@@ -1,6 +1,7 @@
 flask
 tensorflowjs
-tensorflow
+tensorflow==1.9.0
 svgwrite
-magenta
+ipython
+Pillow
 requests
