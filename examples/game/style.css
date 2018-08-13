@@ -6,6 +6,7 @@ body,html{
 }
 * {
     box-sizing: border-box;
+    font-family: ComicSansMS;
 }
 #background {
     width: 100%;
@@ -34,7 +35,6 @@ body,html{
     width: 100%;
     height: 278px;
     margin: auto;
-    font-family: ComicSansMS;
     font-size: 160px;
     font-weight: normal;
     font-style: normal;
