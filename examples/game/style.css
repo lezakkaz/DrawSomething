@@ -91,6 +91,25 @@ body,html{
 .game-header span {
     font-size: 23px;
 }
+
+.reset-canvas {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    border: none;
+    padding: 2px 0 0 0;
+    float: right;
+}
+.reset-canvas:focus {
+    outline: none;
+}
+.reset-canvas:hover {
+    cursor: pointer;
+}
+.reset-canvas img {
+    width: 23px;
+    height: 23px;
+}
 .game-description {
     width: 100%;
 }
@@ -178,16 +197,25 @@ body,html{
     border: 1px solid red;
     font-size: 20px;
 }
+.user-mission-wrapper {
+    width: 90%;
+    margin: 0px auto 23px;
+}
 .canvas-container {
     width: 100% !important;
     height: 100% !important;
     position: relative;
     user-select: none;
+    margin: auto;
 }
 .user-draw-wrapper canvas {
     border: 4px solid #666;
-    width: 100% !important;
-    height: 360px !important;
+    width: 90% !important;
+    height: 90% !important;
+    margin: auto;
+    left: 0;
+    right: 0;
+    box-shadow: 1px 1px 10px 1px #aaa;
 }
 .score-list-wrapper {
     position: absolute;
