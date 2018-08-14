@@ -1,6 +1,9 @@
-var canvas;
-var canvas;
-var coords = [];
+var canvas1;
+var canvas2;
+var canvas3;
+var coords1 = [];
+var coords2 = [];
+var coords3 = [];
 var mousePressed = false;
 
 $(document).ready(function() { 
@@ -29,90 +32,106 @@ $(document).ready(function() {
 });
 
 $(function() {
-    canvas = window._canvas = new fabric.Canvas('drawing-section-1');
-    canvas.backgroundColor = '#ffffff';
-    canvas.isDrawingMode = 1;
-    canvas.freeDrawingBrush.color = "black";
-    canvas.freeDrawingBrush.width = 3;
-    canvas.renderAll();
+    canvas1 = window._canvas = new fabric.Canvas('drawing-section-1');
+    canvas1.backgroundColor = '#ffffff';
+    canvas1.isDrawingMode = 1;
+    canvas1.freeDrawingBrush.color = "black";
+    canvas1.freeDrawingBrush.width = 3;
+    canvas1.renderAll();
     //setup listeners 
-    canvas.on('mouse:up', function(e) {
+    canvas1.on('mouse:up', function(e) {
         recordFirstCoor(e)
         mousePressed = false
     });
-    canvas.on('mouse:down', function(e) {
+    canvas1.on('mouse:down', function(e) {
         mousePressed = true
     });
-    canvas.on('mouse:move', function(e) {
+    canvas1.on('mouse:move', function(e) {
         
     });
 })
 $(function() {
-    canvas = window._canvas = new fabric.Canvas('drawing-section-2');
-    canvas.backgroundColor = '#ffffff';
-    canvas.isDrawingMode = 1;
-    canvas.freeDrawingBrush.color = "black";
-    canvas.freeDrawingBrush.width = 3;
-    canvas.renderAll();
+    canvas2 = window._canvas = new fabric.Canvas('drawing-section-2');
+    canvas2.backgroundColor = '#ffffff';
+    canvas2.isDrawingMode = 1;
+    canvas2.freeDrawingBrush.color = "black";
+    canvas2.freeDrawingBrush.width = 3;
+    canvas2.renderAll();
     //setup listeners 
-    canvas.on('mouse:up', function(e) {
+    canvas2.on('mouse:up', function(e) {
         recordSecondCoor(e)
         mousePressed = false
     });
-    canvas.on('mouse:down', function(e) {
+    canvas2.on('mouse:down', function(e) {
         mousePressed = true
     });
-    canvas.on('mouse:move', function(e) {
+    canvas2.on('mouse:move', function(e) {
         
     });
 })
 $(function() {
-    canvas = window._canvas = new fabric.Canvas('drawing-section-3');
-    canvas.backgroundColor = '#ffffff';
-    canvas.isDrawingMode = 1;
-    canvas.freeDrawingBrush.color = "black";
-    canvas.freeDrawingBrush.width = 3;
-    canvas.renderAll();
+    canvas3 = window._canvas = new fabric.Canvas('drawing-section-3');
+    canvas3.backgroundColor = '#ffffff';
+    canvas3.isDrawingMode = 1;
+    canvas3.freeDrawingBrush.color = "black";
+    canvas3.freeDrawingBrush.width = 3;
+    canvas3.renderAll();
     //setup listeners 
-    canvas.on('mouse:up', function(e) {
+    canvas3.on('mouse:up', function(e) {
         recordThirdCoor(e)
         mousePressed = false
     });
-    canvas.on('mouse:down', function(e) {
+    canvas3.on('mouse:down', function(e) {
         mousePressed = true
     });
-    canvas.on('mouse:move', function(e) {
+    canvas3.on('mouse:move', function(e) {
         
     });
 })
 
 function recordFirstCoor(event) {
-    var pointer = canvas.getPointer(event.e);
+    var pointer = canvas1.getPointer(event.e);
     var posX = pointer.x;
     var posY = pointer.y;
 
     if (posX >= 0 && posY >= 0 && mousePressed) {
-        coords.push(pointer)
+        coords1.push(pointer)
     }
-    console.log(coords);
+    console.log(coords1);
 }
 function recordSecondCoor(event) {
-    var pointer = canvas.getPointer(event.e);
+    var pointer = canvas2.getPointer(event.e);
     var posX = pointer.x;
     var posY = pointer.y;
 
     if (posX >= 0 && posY >= 0 && mousePressed) {
-        coords.push(pointer)
+        coords2.push(pointer)
     }
-    console.log(coords);
+    console.log(coords2);
 }
 function recordThirdCoor(event) {
-    var pointer = canvas.getPointer(event.e);
+    var pointer = canvas3.getPointer(event.e);
     var posX = pointer.x;
     var posY = pointer.y;
 
     if (posX >= 0 && posY >= 0 && mousePressed) {
-        coords.push(pointer)
+        coords3.push(pointer)
     }
-    console.log(coords);
+    console.log(coords3);
+}
+
+function clearFirstCanvas() {
+    canvas1.clear();
+    canvas1.backgroundColor = '#ffffff';
+    coords1 = [];
+}
+function clearFirstCanvas() {
+    canvas2.clear();
+    canvas2.backgroundColor = '#ffffff';
+    coords2 = [];
+}
+function clearFirstCanvas() {
+    canvas3.clear();
+    canvas3.backgroundColor = '#ffffff';
+    coords3 = [];
 }
