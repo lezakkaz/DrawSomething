@@ -29,6 +29,12 @@ $(document).ready(function() {
             }
         }
     );
+    $(".reset-canvas").click(
+        function() {
+            var index = $(".reset-canvas").index(this);
+            clearCanvas(index);
+        }
+    );
 });
 
 $(function() {
@@ -50,6 +56,7 @@ $(function() {
         
     });
 })
+
 $(function() {
     canvas2 = window._canvas = new fabric.Canvas('drawing-section-2');
     canvas2.backgroundColor = '#ffffff';
@@ -69,6 +76,7 @@ $(function() {
         
     });
 })
+
 $(function() {
     canvas3 = window._canvas = new fabric.Canvas('drawing-section-3');
     canvas3.backgroundColor = '#ffffff';
@@ -99,6 +107,7 @@ function recordFirstCoor(event) {
     }
     console.log(coords1);
 }
+
 function recordSecondCoor(event) {
     var pointer = canvas2.getPointer(event.e);
     var posX = pointer.x;
@@ -109,6 +118,7 @@ function recordSecondCoor(event) {
     }
     console.log(coords2);
 }
+
 function recordThirdCoor(event) {
     var pointer = canvas3.getPointer(event.e);
     var posX = pointer.x;
@@ -120,18 +130,15 @@ function recordThirdCoor(event) {
     console.log(coords3);
 }
 
-function clearFirstCanvas() {
-    canvas1.clear();
-    canvas1.backgroundColor = '#ffffff';
-    coords1 = [];
-}
-function clearSecondCanvas() {
-    canvas2.clear();
-    canvas2.backgroundColor = '#ffffff';
-    coords2 = [];
-}
-function clearThirdCanvas() {
-    canvas3.clear();
-    canvas3.backgroundColor = '#ffffff';
-    coords3 = [];
+function clearCanvas(index) {
+    var canvasStr = "canvas"+(index+1);
+    var canvasObj = eval("("+canvasStr+")");
+    var coordsStr = "coords"+(index+1);
+    var coordsObj = eval("("+coordsStr+")");
+    console.log(coordsObj)
+    canvasObj.clear();
+    canvasObj.backgroundColor = '#ffffff';
+    while(coordsObj.length > 0) {
+        coordsObj.pop();
+    }
 }
