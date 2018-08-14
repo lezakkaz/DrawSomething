@@ -125,12 +125,12 @@ function clearFirstCanvas() {
     canvas1.backgroundColor = '#ffffff';
     coords1 = [];
 }
-function clearFirstCanvas() {
+function clearSecondCanvas() {
     canvas2.clear();
     canvas2.backgroundColor = '#ffffff';
     coords2 = [];
 }
-function clearFirstCanvas() {
+function clearThirdCanvas() {
     canvas3.clear();
     canvas3.backgroundColor = '#ffffff';
     coords3 = [];
