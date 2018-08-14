@@ -116,3 +116,9 @@ fabric.js
 *.ndjson
 eval.*
 training.*
+
+# Editor Settings
+.vscode
+
+# SVG data
+/temp
