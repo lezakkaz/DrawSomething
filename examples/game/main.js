@@ -46,7 +46,7 @@ $(function() {
     canvas1.renderAll();
     //setup listeners 
     canvas1.on('mouse:up', function(e) {
-        recordFirstCoor(e)
+        recordCoordinates(e,1)
         mousePressed = false
     });
     canvas1.on('mouse:down', function(e) {
@@ -66,7 +66,7 @@ $(function() {
     canvas2.renderAll();
     //setup listeners 
     canvas2.on('mouse:up', function(e) {
-        recordSecondCoor(e)
+        recordCoordinates(e,2)
         mousePressed = false
     });
     canvas2.on('mouse:down', function(e) {
@@ -86,7 +86,7 @@ $(function() {
     canvas3.renderAll();
     //setup listeners 
     canvas3.on('mouse:up', function(e) {
-        recordThirdCoor(e)
+        recordCoordinates(e,3)
         mousePressed = false
     });
     canvas3.on('mouse:down', function(e) {
@@ -97,37 +97,21 @@ $(function() {
     });
 })
 
-function recordFirstCoor(event) {
-    var pointer = canvas1.getPointer(event.e);
+function recordCoordinates(event, index) {
+    var canvasStr = "canvas"+(index);
+    var canvasObj = eval("("+canvasStr+")");
+    var coordsStr = "coords"+(index);
+    var coordsObj = eval("("+coordsStr+")");
+
+    var pointer = canvasObj.getPointer(event.e);
     var posX = pointer.x;
     var posY = pointer.y;
 
     if (posX >= 0 && posY >= 0 && mousePressed) {
-        coords1.push(pointer)
+        coordsObj.push(pointer)
     }
-    console.log(coords1);
-}
-
-function recordSecondCoor(event) {
-    var pointer = canvas2.getPointer(event.e);
-    var posX = pointer.x;
-    var posY = pointer.y;
-
-    if (posX >= 0 && posY >= 0 && mousePressed) {
-        coords2.push(pointer)
-    }
-    console.log(coords2);
-}
-
-function recordThirdCoor(event) {
-    var pointer = canvas3.getPointer(event.e);
-    var posX = pointer.x;
-    var posY = pointer.y;
-
-    if (posX >= 0 && posY >= 0 && mousePressed) {
-        coords3.push(pointer)
-    }
-    console.log(coords3);
+    console.log("Coor of " + index + " is ");
+    console.log(coordsObj);
 }
 
 function clearCanvas(index) {
