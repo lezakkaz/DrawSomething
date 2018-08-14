@@ -93,11 +93,11 @@ body,html{
 }
 
 .reset-canvas {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     background-color: #000;
     border: none;
-    padding: 2px 0 0 0;
+    padding: 4px 0 0 0;
     float: right;
     border-radius: 5px;
     box-shadow: 1px 1px 10px 1px #aaa;
@@ -120,7 +120,7 @@ body,html{
     animation: rotating 0.7s linear infinite;
 }
 
-@-webkit-keyframes rotating /* Safari and Chrome */ {
+@keyframes rotating /* Safari and Chrome */ {
     from {
         -webkit-transform: rotate(360deg);
         -o-transform: rotate(360deg);
