@@ -99,6 +99,8 @@ body,html{
     border: none;
     padding: 2px 0 0 0;
     float: right;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 1px #aaa;
 }
 .reset-canvas:focus {
     outline: none;
@@ -134,11 +136,9 @@ body,html{
     position: absolute;
     top: 50px;
     height: 130px;
-    border: 1px solid red;
 }
 .score-wrapper, .game-info-wrapper {
     display: inline-block;
-    border: 1px solid blue;
     width: fit-content;
     height: 100%;
 }
@@ -166,17 +166,14 @@ body,html{
     position: absolute;
     bottom: 50px;
     height: 550px;
-    border: 1px solid green;
 }
 .draw-box-wrapper {
     width: 100%;
     height: 100%;
-    border: 1px solid purple;
     font-size: 0px; /* For removing gaps between elements */
 }
 .draw-box {
     position: absolute;
-    border: 1px solid pink;
     width: 33.33333%;
     height: 100%;
 }
@@ -194,7 +191,6 @@ body,html{
 .user-draw-wrapper {
     width: 100%;
     height: calc(100% - 150px);
-    border: 1px solid red;
     font-size: 20px;
 }
 .user-mission-wrapper {
@@ -222,7 +218,6 @@ body,html{
     bottom: 0;
     width: 100%;
     height: 150px;
-    border: 1px solid purple;
     font-size: 20px;
     text-align: left;
     padding: 15px;
