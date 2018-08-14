@@ -9,11 +9,48 @@
 </head>
 <body>
     <div id="background">
-        <div id="game-wrapper">
-            
+        <div id="game-wrapper" class="padding-50">
+            <div class="inner-game-header full-width">
+                <div class="score-wrapper">
+                    <span>Total Score:</span>
+                    <span id="speed-draw-score">60</span>
+                    <span>points</span>
+                </div>
+                <div class="game-info-wrapper">
+                    <span>Speed Draw</span>
+                    
+                    <span>Finish three drawings within 60sec</span>
+                </div>
+            </div>
+            <div class="speed-draw-contents full-width">
+                <div class="draw-box-wrapper">
+                    <div class="draw-box">
+                        <div class="user-draw-wrapper">
+                            <div>Draw something</div>
+                            <canvas id="drawing-section-1"></canvas>
+                        </div>
+                        <div class="score-list-wrapper"></div>
+                    </div>
+                    <div class="draw-box">
+                        <div class="user-draw-wrapper">
+                            <div>Draw something</div>
+                            <canvas id="drawing-section-2"></canvas>
+                        </div>
+                        <div class="score-list-wrapper"></div>
+                    </div>
+                    <div class="draw-box">
+                        <div class="user-draw-wrapper">
+                            <div>Draw something</div>
+                            <canvas id="drawing-section-3"></canvas>
+                        </div>
+                        <div class="score-list-wrapper"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="fabric.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
