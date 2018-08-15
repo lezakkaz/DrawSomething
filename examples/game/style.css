@@ -112,13 +112,13 @@ body,html{
     width: 23px;
     height: 23px;
 }
-.reset-canvas img:hover {
+/* .reset-canvas img:hover {
     -webkit-animation: rotating 0.7s linear infinite;
     -moz-animation: rotating 0.7s linear infinite;
     -ms-animation: rotating 0.7s linear infinite;
     -o-animation: rotating 0.7s linear infinite;
     animation: rotating 0.7s linear infinite;
-}
+} */
 
 @keyframes rotating /* Safari and Chrome */ {
     from {
