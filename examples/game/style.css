@@ -242,7 +242,10 @@ body,html{
     text-align: left;
     padding: 30px 15px 15px;
 }
-span.guessed-class {
-    display: block;
-    width: fit-content;
+.guessed-class-wrapper {
+    width: 100%;
+}
+.added-score {
+    float: right;
+    margin-right: 20px;
 }
