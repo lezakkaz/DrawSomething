@@ -242,3 +242,7 @@ body,html{
     text-align: left;
     padding: 30px 15px 15px;
 }
+span.guessed-class {
+    display: block;
+    width: fit-content;
+}
