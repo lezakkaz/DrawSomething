@@ -35,67 +35,64 @@ $(document).ready(function() {
             clearCanvas(index);
         }
     );
+    $(function() {
+        canvas1 = window._canvas = new fabric.Canvas('drawing-section-1');
+        canvas1.backgroundColor = '#ffffff';
+        canvas1.isDrawingMode = 1;
+        canvas1.freeDrawingBrush.color = "black";
+        canvas1.freeDrawingBrush.width = 3;
+        canvas1.renderAll();
+        //setup listeners 
+        canvas1.on('mouse:up', function(e) {
+            recordCoordinates(e,1)
+            mousePressed = false
+        });
+        canvas1.on('mouse:down', function(e) {
+            mousePressed = true
+        });
+        canvas1.on('mouse:move', function(e) {
+            
+        });
+    })
+    $(function() {
+        canvas2 = window._canvas = new fabric.Canvas('drawing-section-2');
+        canvas2.backgroundColor = '#ffffff';
+        canvas2.isDrawingMode = 1;
+        canvas2.freeDrawingBrush.color = "black";
+        canvas2.freeDrawingBrush.width = 3;
+        canvas2.renderAll();
+        //setup listeners 
+        canvas2.on('mouse:up', function(e) {
+            recordCoordinates(e,2)
+            mousePressed = false
+        });
+        canvas2.on('mouse:down', function(e) {
+            mousePressed = true
+        });
+        canvas2.on('mouse:move', function(e) {
+            
+        });
+    })
+    $(function() {
+        canvas3 = window._canvas = new fabric.Canvas('drawing-section-3');
+        canvas3.backgroundColor = '#ffffff';
+        canvas3.isDrawingMode = 1;
+        canvas3.freeDrawingBrush.color = "black";
+        canvas3.freeDrawingBrush.width = 3;
+        canvas3.renderAll();
+        //setup listeners 
+        canvas3.on('mouse:up', function(e) {
+            recordCoordinates(e,3)
+            mousePressed = false
+        });
+        canvas3.on('mouse:down', function(e) {
+            mousePressed = true
+        });
+        canvas3.on('mouse:move', function(e) {
+            
+        });
+    })
 });
-
-$(function() {
-    canvas1 = window._canvas = new fabric.Canvas('drawing-section-1');
-    canvas1.backgroundColor = '#ffffff';
-    canvas1.isDrawingMode = 1;
-    canvas1.freeDrawingBrush.color = "black";
-    canvas1.freeDrawingBrush.width = 3;
-    canvas1.renderAll();
-    //setup listeners 
-    canvas1.on('mouse:up', function(e) {
-        recordCoordinates(e,1)
-        mousePressed = false
-    });
-    canvas1.on('mouse:down', function(e) {
-        mousePressed = true
-    });
-    canvas1.on('mouse:move', function(e) {
-        
-    });
-})
-
-$(function() {
-    canvas2 = window._canvas = new fabric.Canvas('drawing-section-2');
-    canvas2.backgroundColor = '#ffffff';
-    canvas2.isDrawingMode = 1;
-    canvas2.freeDrawingBrush.color = "black";
-    canvas2.freeDrawingBrush.width = 3;
-    canvas2.renderAll();
-    //setup listeners 
-    canvas2.on('mouse:up', function(e) {
-        recordCoordinates(e,2)
-        mousePressed = false
-    });
-    canvas2.on('mouse:down', function(e) {
-        mousePressed = true
-    });
-    canvas2.on('mouse:move', function(e) {
-        
-    });
-})
-
-$(function() {
-    canvas3 = window._canvas = new fabric.Canvas('drawing-section-3');
-    canvas3.backgroundColor = '#ffffff';
-    canvas3.isDrawingMode = 1;
-    canvas3.freeDrawingBrush.color = "black";
-    canvas3.freeDrawingBrush.width = 3;
-    canvas3.renderAll();
-    //setup listeners 
-    canvas3.on('mouse:up', function(e) {
-        recordCoordinates(e,3)
-        mousePressed = false
-    });
-    canvas3.on('mouse:down', function(e) {
-        mousePressed = true
-    });
-    canvas3.on('mouse:move', function(e) {
-        
-    });
-})
 
 function recordCoordinates(event, index) {
     var canvasStr = "canvas"+(index);
