@@ -121,14 +121,14 @@ function generateRandomNum() {
     return Math.floor((Math.random() * tempWordsList.length) + 0);
 }
 
-function pickMissionWords() {
-    var pickedIndex = generateRandomNumList();
+async function pickMissionWords() {
+    var pickedIndex = await generateRandomNumList();
     return [tempWordsList[pickedIndex[0]],tempWordsList[pickedIndex[1]],tempWordsList[pickedIndex[2]]];
 }
 
-function displayMissionWords() {
+async function displayMissionWords() {
     var missionWordsWrapper = document.getElementsByClassName("user-mission-text");
-    var wordsList = pickMissionWords();
+    var wordsList = await pickMissionWords();
     answerList = wordsList;
     for(i = 0; i < wordsList.length; i++) {
         missionWordsWrapper[i].textContent = "Draw " + wordsList[i];
