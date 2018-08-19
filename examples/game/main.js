@@ -6,7 +6,10 @@ var coords2 = [];
 var coords3 = [];
 var mousePressed = false;
 
+tempWordsList = ["Banana","Flamingo","Dog","Elephant","Cat","Tent","Building","Book","Laptop","Car"];
+
 $(document).ready(function() { 
+    displayMissionWords();
     $(".comming-soon").hover(
         function() {
             $(this).children('.text-wrapper').css('opacity','0.2');
@@ -121,5 +124,33 @@ function clearCanvas(index) {
     canvasObj.backgroundColor = '#ffffff';
     while(coordsObj.length > 0) {
         coordsObj.pop();
+    }
+}
+
+function generateRandomNumList() {
+    var randomNumList = [];
+    while(randomNumList.length != 3) {
+        var randomNum = generateRandomNum();
+        if(!randomNumList.includes(randomNum)) {
+            randomNumList.push(randomNum);
+        }
+    }
+    return randomNumList;
+}
+
+function generateRandomNum() {
+    return Math.floor((Math.random() * tempWordsList.length) + 0);
+}
+
+function pickMissionWords() {
+    var pickedIndex =  generateRandomNumList();
+    return [tempWordsList[pickedIndex[0]],tempWordsList[pickedIndex[1]],tempWordsList[pickedIndex[2]]];
+}
+
+function displayMissionWords() {
+    var missionWordsWrapper = document.getElementsByClassName("user-mission-text");
+    var wordsList = pickMissionWords();
+    for(i = 0; i < wordsList.length; i++) {
+        missionWordsWrapper[i].innerHTML = "Draw " + wordsList[i];
     }
 }
