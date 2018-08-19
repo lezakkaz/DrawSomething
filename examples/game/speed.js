@@ -122,7 +122,7 @@ function generateRandomNum() {
 }
 
 function pickMissionWords() {
-    var pickedIndex =  generateRandomNumList();
+    var pickedIndex = generateRandomNumList();
     return [tempWordsList[pickedIndex[0]],tempWordsList[pickedIndex[1]],tempWordsList[pickedIndex[2]]];
 }
 
@@ -131,6 +131,6 @@ function displayMissionWords() {
     var wordsList = pickMissionWords();
     answerList = wordsList;
     for(i = 0; i < wordsList.length; i++) {
-        missionWordsWrapper[i].innerHTML = "Draw " + wordsList[i];
+        missionWordsWrapper[i].textContent = "Draw " + wordsList[i];
     }
 }
