@@ -4,6 +4,7 @@ var canvas3;
 var coords1 = [];
 var coords2 = [];
 var coords3 = [];
+var answerList = [];
 var mousePressed = false;
 
 tempWordsList = ["Banana","Flamingo","Dog","Elephant","Cat","Tent","Building","Book","Laptop","Car"];
@@ -150,6 +151,7 @@ function pickMissionWords() {
 function displayMissionWords() {
     var missionWordsWrapper = document.getElementsByClassName("user-mission-text");
     var wordsList = pickMissionWords();
+    answerList = wordsList;
     for(i = 0; i < wordsList.length; i++) {
         missionWordsWrapper[i].innerHTML = "Draw " + wordsList[i];
     }
