@@ -26,14 +26,14 @@ $(document).ready(function() {
         canvas1.renderAll();
         //setup listeners 
         canvas1.on('mouse:up', function(e) {
-            recordCoordinates(e,1)
+            
             mousePressed = false
         });
         canvas1.on('mouse:down', function(e) {
             mousePressed = true
         });
         canvas1.on('mouse:move', function(e) {
-            
+            recordCoordinates(e,1)
         });
     })
     $(function() {
@@ -45,14 +45,14 @@ $(document).ready(function() {
         canvas2.renderAll();
         //setup listeners 
         canvas2.on('mouse:up', function(e) {
-            recordCoordinates(e,2)
+            
             mousePressed = false
         });
         canvas2.on('mouse:down', function(e) {
             mousePressed = true
         });
         canvas2.on('mouse:move', function(e) {
-            
+            recordCoordinates(e,2)
         });
     })
     $(function() {
@@ -64,14 +64,14 @@ $(document).ready(function() {
         canvas3.renderAll();
         //setup listeners 
         canvas3.on('mouse:up', function(e) {
-            recordCoordinates(e,3)
+            
             mousePressed = false
         });
         canvas3.on('mouse:down', function(e) {
             mousePressed = true
         });
         canvas3.on('mouse:move', function(e) {
-            
+            recordCoordinates(e,3)
         });
     })
 });
