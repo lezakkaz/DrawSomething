@@ -16,6 +16,14 @@ def sketch():
 def game():
     return render_template('game.html')
 
+@app.route("/speed_draw")
+def speed_draw():
+    return render_template('speed_draw.html')
+
+@app.route("/guess_draw")
+def guess_draw():
+    return render_template('guess_draw.html')
+
 # model list : aaron_sheep, catbus, elephantpig, flamingo, owl
 @app.route("/auto",methods=['GET'])
 def autoEncoderGenerateImage():
