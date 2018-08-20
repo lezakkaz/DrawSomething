@@ -1,0 +1,251 @@
+body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+    font-family: ComicSansMS;
+}
+#background {
+    width: 100%;
+    height: 100%;
+    min-height: 900px;
+    background-size: cover;
+    background-image: url(../resource/background.png);
+}
+.padding-50 {
+    padding: 50px;
+}
+.full-width {
+    width: calc(100% - 100px);
+}
+#game-wrapper {
+    position: relative;
+    background-color: #FFF;
+    margin: auto;
+    padding-top: 50px;
+    top: 50%;
+    transform: translate(0,-50%);
+    width: 80%;
+    max-width: 1440px;
+    min-width: 1280px;
+    height: 90%;
+    max-height: 824px;
+    min-height: 694px;
+    box-shadow: 0px 1px 10px 1px #555;
+    text-align: center;
+}
+.game-title {
+    width: 100%;
+    height: 278px;
+    margin: auto;
+    font-size: 160px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+    color: var(--black);
+}
+.select-box-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 340px;
+    padding: 40px;
+}
+.select-game {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 260px;
+    height: 260px;
+    margin: 0px 10px;
+    box-shadow: 0px 1px 3px 1px #888;
+    border-radius: 10px;
+    transition: 300ms;
+}
+.active:hover {
+    cursor: pointer;
+    box-shadow: 0px 1px 13px 1px #333;
+}
+.text-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    max-height: 50%;
+    overflow: hidden;
+    text-align: left;
+    padding: 0px 20px 10px;
+    bottom: 0;
+    transition: 300ms;
+}
+.game-header {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.game-header span {
+    font-size: 23px;
+}
+
+.reset-canvas {
+    width: 35px;
+    height: 35px;
+    background-color: #000;
+    border: none;
+    padding: 4px 0 0 0;
+    float: right;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 1px #aaa;
+}
+.reset-canvas:focus {
+    outline: none;
+}
+.reset-canvas:hover {
+    cursor: pointer;
+}
+.reset-canvas img {
+    width: 23px;
+    height: 23px;
+}
+/* .reset-canvas img:hover {
+    -webkit-animation: rotating 0.7s linear infinite;
+    -moz-animation: rotating 0.7s linear infinite;
+    -ms-animation: rotating 0.7s linear infinite;
+    -o-animation: rotating 0.7s linear infinite;
+    animation: rotating 0.7s linear infinite;
+} */
+
+@keyframes rotating /* Safari and Chrome */ {
+    from {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    to {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+}
+.game-description {
+    width: 100%;
+}
+.game-description span {
+    font-size: 15px;
+    color: #aaa;
+}
+.comming-soon-message {
+    position: relative;
+    display: none;
+    z-index: 9999;
+    color: #fff;
+    font-size: 25px;
+    width: 100%;
+    height: 100%;
+    line-height: 260px;
+    background: #999;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+.inner-game-header {
+    position: absolute;
+    top: 50px;
+    height: 130px;
+}
+.score-wrapper, .game-info-wrapper {
+    display: inline-block;
+    width: fit-content;
+    height: 100%;
+}
+.score-wrapper {
+    float: left;
+}
+.score-wrapper span {
+    font-size: 30px;
+}
+.game-info-wrapper {
+    float: right;
+    text-align: right;
+}
+.game-info-wrapper span {
+    display: block;
+}
+.game-info-wrapper span:nth-child(1) {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.game-info-wrapper span:nth-child(2) {
+    font-size: 17px;
+}
+.speed-draw-contents {
+    position: absolute;
+    bottom: 50px;
+    height: 550px;
+}
+.draw-box-wrapper {
+    width: 100%;
+    height: 100%;
+    font-size: 0px; /* For removing gaps between elements */
+}
+.draw-box {
+    position: absolute;
+    width: 33.33333%;
+    height: 100%;
+}
+.draw-box:nth-child(1) {
+    left: 0;
+}
+.draw-box:nth-child(2) {
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+.draw-box:nth-child(3) {
+    right: 0;
+}
+.user-draw-wrapper {
+    width: 100%;
+    height: calc(100% - 150px);
+    font-size: 25px;
+}
+.user-mission-wrapper {
+    width: 90%;
+    margin: 0px auto 23px;
+}
+.canvas-container {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+    user-select: none;
+    margin: auto;
+}
+.user-draw-wrapper canvas {
+    border: 4px solid #666;
+    width: 90% !important;
+    height: 90% !important;
+    margin: auto;
+    left: 0;
+    right: 0;
+    box-shadow: 1px 1px 10px 1px #aaa;
+}
+.score-list-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    font-size: 25px;
+    text-align: left;
+    padding: 30px 15px 15px;
+}
+.guessed-class-wrapper {
+    width: 100%;
+}
+.added-score {
+    float: right;
+    margin-right: 20px;
+}

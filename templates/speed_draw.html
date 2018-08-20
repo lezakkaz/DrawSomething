@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Speed Draw</title>
+    <link rel="stylesheet" href="../static/css/game.css">
+</head>
+<body>
+    <div id="background">
+        <div id="game-wrapper" class="padding-50">
+            <div class="inner-game-header full-width">
+                <div class="score-wrapper">
+                    <span>Total Score:</span>
+                    <span id="speed-draw-score">60</span>
+                    <span>points</span>
+                </div>
+                <div class="game-info-wrapper">
+                    <span>Speed Draw</span>
+                    
+                    <span>Finish three drawings within 60sec</span>
+                </div>
+            </div>
+            <div class="speed-draw-contents full-width">
+                <div class="draw-box-wrapper">
+                    <div class="draw-box">
+                        <div class="user-draw-wrapper">
+                            <div class="user-mission-wrapper">
+                                <span class="user-mission-text">...</span>
+                                <button class="reset-canvas">
+                                    <img src="resource/reset.png" alt="">
+                                </button>
+                            </div>
+                            <canvas id="drawing-section-1"></canvas>
+                        </div>
+                        <div class="score-list-wrapper">
+                            <div class="guessed-class-wrapper">
+                                <span class="guessed-class">1. test</span>
+                                <span class="added-score">+10pts</span>
+                            </div>
+                            <div class="guessed-class-wrapper">
+                                <span class="guessed-class">1. test</span>
+                                <span class="added-score">+10pts</span>
+                            </div>
+                            <div class="guessed-class-wrapper">
+                                <span class="guessed-class">1. test</span>
+                                <span class="added-score">+10pts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="draw-box">
+                        <div class="user-draw-wrapper">
+                            <div class="user-mission-wrapper">
+                                <span class="user-mission-text">...</span>
+                                <button class="reset-canvas">
+                                    <img src="resource/reset.png" alt="">
+                                </button>
+                            </div>
+                            <canvas id="drawing-section-2"></canvas>
+                        </div>
+                        <div class="score-list-wrapper">
+                            <div class="guessed-class-wrapper">
+                                <span class="guessed-class">1. test</span>
+                                <span class="added-score">+10pts</span>
+                            </div>
+                            <div class="guessed-class-wrapper">
+                                <span class="guessed-class">1. test</span>
+                                <span class="added-score">+10pts</span>
+                            </div>
+                            <div class="guessed-class-wrapper">
+                                <span class="guessed-class">1. test</span>
+                                <span class="added-score">+10pts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="draw-box">
+                        <div class="user-draw-wrapper">
+                            <div class="user-mission-wrapper">
+                                <span class="user-mission-text">...</span>
+                                <button class="reset-canvas">
+                                    <img src="resource/reset.png" alt="">
+                                </button>
+                            </div>
+                            <canvas id="drawing-section-3"></canvas>
+                        </div>
+                        <div class="score-list-wrapper">
+                            <div class="guessed-class-wrapper">
+                                <span class="guessed-class">1. test</span>
+                                <span class="added-score">+10pts</span>
+                            </div>
+                            <div class="guessed-class-wrapper">
+                                <span class="guessed-class">1. test</span>
+                                <span class="added-score">+10pts</span>
+                            </div>
+                            <div class="guessed-class-wrapper">
+                                <span class="guessed-class">1. test</span>
+                                <span class="added-score">+10pts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../static/js/fabric.js"></script>
+    <script src="../static/js/speed.js"></script>
+</body>
+</html>

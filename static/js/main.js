@@ -1,24 +1,24 @@
-// Paper.js needs to be downloaded in order to run the code
-// TODO:: Setup node.js
-paper.install(window);
-window.onload = function() {
-  paper.setup('drawingTool');
-
-  var tool = new Tool();
-  var path;
-
-  tool.onMouseDown = function(event) {
-    path = new Path();
-    path.strokeColor = 'black';
-    path.add(event.point);
-  }
-
-  tool.onMouseDrag = function(event) {
-    path.add(event.point);
-  }
-}
-
-function clearDrawing() {
-  paper.project.activeLayer.removeChildren();
-  paper.view.draw();
-}
+$(document).ready(function() { 
+    $(".comming-soon").hover(
+        function() {
+            $(this).children('.text-wrapper').css('opacity','0.2');
+            $(this).append(
+                "<div class='comming-soon-message'>Comming Soon...</div>"
+            );
+            $(".comming-soon-message").fadeIn(200);
+        }, function() {
+            $(this).children('.text-wrapper').css('opacity','1');
+            $(".comming-soon-message").remove();
+        }
+    );
+    $(".select-game").click(
+        function() {
+            var index = $(".select-game").index(this);
+            if(index == 0) {
+                window.location.href = "speed_draw";
+            } else if(index == 1) {
+                window.location.href = "guess_draw";
+            }
+        }
+    );
+});

@@ -12,6 +12,10 @@ def home():
 def sketch():
     return render_template('sketch.html')
 
+@app.route("/game")
+def game():
+    return render_template('game.html')
+
 # model list : aaron_sheep, catbus, elephantpig, flamingo, owl
 @app.route("/auto",methods=['GET'])
 def autoEncoderGenerateImage():
