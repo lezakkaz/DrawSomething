@@ -103,6 +103,12 @@ function startTimer(duration) {
     }, 1000);
 }
 
+function enableStartButton() {
+    var start_button = document.getElementById("start-game");
+    start_button.removeAttribute("disabled");
+    start_button.textContent = "S T A R T";
+}
+
 async function start() {
     
     //load the model 
@@ -115,6 +121,8 @@ async function start() {
     
     //load the class names
     await loadDict();
+
+    enableStartButton();
 }
 
 async function loadDict() {
