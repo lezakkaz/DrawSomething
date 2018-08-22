@@ -24,14 +24,14 @@ $(document).ready(function() {
         canvas1.renderAll();
         //setup listeners 
         canvas1.on('mouse:up', function(e) {
-            getFrame();
+            getFrame(0);
             mousePressed = false
         });
         canvas1.on('mouse:down', function(e) {
             mousePressed = true
         });
         canvas1.on('mouse:move', function(e) {
-            recordCoordinates(e,1)
+            recordCoordinates(e,0)
         });
     })
     $(function() {
@@ -43,14 +43,14 @@ $(document).ready(function() {
         canvas2.renderAll();
         //setup listeners 
         canvas2.on('mouse:up', function(e) {
-            
+            getFrame(1);
             mousePressed = false
         });
         canvas2.on('mouse:down', function(e) {
             mousePressed = true
         });
         canvas2.on('mouse:move', function(e) {
-            recordCoordinates(e,2)
+            recordCoordinates(e,1)
         });
     })
     $(function() {
@@ -62,14 +62,14 @@ $(document).ready(function() {
         canvas3.renderAll();
         //setup listeners 
         canvas3.on('mouse:up', function(e) {
-            
+            getFrame(2);
             mousePressed = false
         });
         canvas3.on('mouse:down', function(e) {
             mousePressed = true
         });
         canvas3.on('mouse:move', function(e) {
-            recordCoordinates(e,3)
+            recordCoordinates(e,2)
         });
     })
 });
@@ -103,12 +103,13 @@ function success(data) {
     displayMissionWords();
 }
 
-function getFrame() {
+function getFrame(index) {
+    var coords = convertStrToObj("coords",index);
     //make sure we have at least two recorded coordinates 
-    if (coords1.length >= 2) {
+    if (coords.length >= 2) {
 
         //get the image data from the canvas 
-        const imgData = getImageData();
+        const imgData = getImageData(index);
 
         //get the prediction 
         const pred = model.predict(preprocess(imgData)).dataSync();
@@ -124,13 +125,16 @@ function getFrame() {
     }
 }
 
-function getImageData() {
+function getImageData(index) {
+    var canvas = convertStrToObj("canvas",index);
+    console.log(canvas);
+
     //get the minimum bounding box around the drawing 
-    const mbb = getMinBox()
+    const mbb = getMinBox(index)
 
     //get image data according to dpi 
     const dpi = window.devicePixelRatio
-    const imgData = canvas1.contextContainer.getImageData(mbb.min.x * dpi, mbb.min.y * dpi,
+    const imgData = canvas.contextContainer.getImageData(mbb.min.x * dpi, mbb.min.y * dpi,
                                                   (mbb.max.x - mbb.min.x) * dpi, (mbb.max.y - mbb.min.y) * dpi);
     return imgData
 }
@@ -183,12 +187,13 @@ function getClassNames(indices) {
     return outp
 }
 
-function getMinBox() {
+function getMinBox(index) {
+    var coords = convertStrToObj("coords",index);
     //get coordinates 
-    var coorX = coords1.map(function(p) {
+    var coorX = coords.map(function(p) {
         return p.x
     });
-    var coorY = coords1.map(function(p) {
+    var coorY = coords.map(function(p) {
         return p.y
     });
 
@@ -209,33 +214,36 @@ function getMinBox() {
     }
 }
 
-function recordCoordinates(event, index) {
-    var canvasStr = "canvas"+(index);
-    var canvasObj = eval("("+canvasStr+")");
-    var coordsStr = "coords"+(index);
-    var coordsObj = eval("("+coordsStr+")");
+function convertStrToObj(inputStr, index) {
+    var str = inputStr + (index+1);
+    var obj = eval("("+str+")");
+    return obj;
+}
 
-    var pointer = canvasObj.getPointer(event.e);
+function recordCoordinates(event, index) {
+    var canvas = convertStrToObj("canvas",index);
+    var coords = convertStrToObj("coords",index);
+
+    var pointer = canvas.getPointer(event.e);
     var posX = pointer.x;
     var posY = pointer.y;
 
     if (posX >= 0 && posY >= 0 && mousePressed) {
-        coordsObj.push(pointer)
+        coords.push(pointer)
     }
     // console.log("Coor of " + index + " is ");
     // console.log(coordsObj);
 }
 
 function clearCanvas(index) {
-    var canvasStr = "canvas"+(index+1);
-    var canvasObj = eval("("+canvasStr+")");
-    var coordsStr = "coords"+(index+1);
-    var coordsObj = eval("("+coordsStr+")");
+    var canvas = convertStrToObj("canvas",index);
+    var coords = convertStrToObj("coords",index);
+
     // console.log(coordsObj)
-    canvasObj.clear();
-    canvasObj.backgroundColor = '#ffffff';
-    while(coordsObj.length > 0) {
-        coordsObj.pop();
+    canvas.clear();
+    canvas.backgroundColor = '#ffffff';
+    while(coords.length > 0) {
+        coords.pop();
     }
 }
 
