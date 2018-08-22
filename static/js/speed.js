@@ -8,11 +8,12 @@ var answerList = [];
 var classNames = [];
 var mousePressed = false;
 
-$(document).ready(function() { 
+$(document).ready(function() {
     $(".reset-canvas").click(
         function() {
             var index = $(".reset-canvas").index(this);
             clearCanvas(index);
+            clearTable(index);
         }
     );
     $(function() {
@@ -126,7 +127,17 @@ function getFrame(index) {
 }
 
 function setTable(classes, index){
-    console.log(classes, index);
+    var answersTag = document.getElementsByClassName("answer"+(index+1));
+    for(i = 0; i < answersTag.length; i++) {
+        answersTag[i].textContent = (i+1) + ". " + classes[i];
+    }
+}
+
+function clearTable(index) {
+    var answersTag = document.getElementsByClassName("answer"+(index+1));
+    for(i = 0; i < answersTag.length; i++) {
+        answersTag[i].textContent = (i+1) + ". ---";
+    }
 }
 
 function getImageData(index) {
