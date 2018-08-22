@@ -12,10 +12,6 @@ def home():
 def sketch():
     return render_template('sketch.html')
 
-@app.route("/game")
-def game():
-    return render_template('game.html')
-
 @app.route("/speed_draw")
 def speed_draw():
     return render_template('speed_draw.html')

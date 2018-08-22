@@ -1,22 +1,63 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <title>Lets draw!</title>
+    <title>Let's draw!</title>
+    <link rel="stylesheet" href="../static/css/game.css">
 </head>
 <body>
-    <div class="info">
-        <label>Drawing Tool</label>
-        <button onclick="clearDrawing()">
-          clear
-        </button>
+    <div id="background">
+        <div id="game-wrapper">
+            <div class="game-title">Let's draw!</div>
+            <!-- TODO :: Text paragraph area -->
+            <div class="select-box-wrapper">
+                <div class="select-game active">
+                    <div class="text-wrapper">
+                        <div class="game-header">
+                            <span>Speed Draw</span>
+                        </div>
+                        <div class="game-description">
+                            <span>blah blah blah blahblah blah blah blah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="select-game active">
+                    <div class="text-wrapper">
+                        <div class="game-header">
+                            <span>Guess Drawing</span>
+                        </div>
+                        <div class="game-description">
+                            <span>blah blah blah blahblah blah blah blah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="select-game comming-soon">
+                    <div class="text-wrapper">
+                        <div class="game-header">
+                            <span>Draw Together</span>
+                        </div>
+                        <div class="game-description">
+                            <span>blah blah blah blahblah blah blah blah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="select-game comming-soon">
+                    <div class="text-wrapper">
+                        <div class="game-header">
+                            <span>Who is better?</span>
+                        </div>
+                        <div class="game-description">
+                            <span>blah blah blah blahblah blah blah blah</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <canvas id="drawingTool" resize></canvas>
-    <script src="../static/js/paper-core.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../static/js/fabric.js"></script>
     <script src="../static/js/main.js"></script>
 </body>
 </html>
