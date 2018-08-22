@@ -18,7 +18,7 @@ $(document).ready(function() {
     $(function() {
         canvas1 = window._canvas = new fabric.Canvas('drawing-section-1');
         canvas1.backgroundColor = '#ffffff';
-        canvas1.isDrawingMode = 1;
+        canvas1.isDrawingMode = 0;
         canvas1.freeDrawingBrush.color = "black";
         canvas1.freeDrawingBrush.width = 3;
         canvas1.renderAll();
@@ -37,7 +37,7 @@ $(document).ready(function() {
     $(function() {
         canvas2 = window._canvas = new fabric.Canvas('drawing-section-2');
         canvas2.backgroundColor = '#ffffff';
-        canvas2.isDrawingMode = 1;
+        canvas2.isDrawingMode = 0;
         canvas2.freeDrawingBrush.color = "black";
         canvas2.freeDrawingBrush.width = 3;
         canvas2.renderAll();
@@ -56,7 +56,7 @@ $(document).ready(function() {
     $(function() {
         canvas3 = window._canvas = new fabric.Canvas('drawing-section-3');
         canvas3.backgroundColor = '#ffffff';
-        canvas3.isDrawingMode = 1;
+        canvas3.isDrawingMode = 0;
         canvas3.freeDrawingBrush.color = "black";
         canvas3.freeDrawingBrush.width = 3;
         canvas3.renderAll();
@@ -81,6 +81,8 @@ async function start() {
     
     //warm up 
     model.predict(tf.zeros([1, 28, 28, 1]));
+
+    allowDrawing();
     
     //load the class names
     await loadDict();
@@ -275,6 +277,13 @@ async function displayMissionWords() {
     for(i = 0; i < wordsList.length; i++) {
         missionWordsWrapper[i].textContent = "Draw " + wordsList[i];
     }
+}
+
+function allowDrawing() {
+    canvas1.isDrawingMode = 1;
+    canvas2.isDrawingMode = 1;
+    canvas3.isDrawingMode = 1;
+    console.log('Model Loaded');
 }
 
 start();
