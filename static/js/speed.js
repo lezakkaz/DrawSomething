@@ -169,7 +169,6 @@ function clearTable(index) {
     $(achivedPoint).text("");
     $(answerWrapper).css("color","black");
     scoreList[index] = 0;
-    console.log($(answerWrapper).children())
     for(i = 0; i < answersTag.length; i++) {
         answersTag[i].textContent = (i+1) + ". ---";
     }
@@ -178,7 +177,6 @@ function clearTable(index) {
 
 function getImageData(index) {
     var canvas = convertStrToObj("canvas",index);
-    console.log(canvas);
 
     //get the minimum bounding box around the drawing 
     const mbb = getMinBox(index)
@@ -322,7 +320,6 @@ async function displayMissionWords() {
     var missionWordsWrapper = document.getElementsByClassName("user-mission-text");
     var wordsList = await pickMissionWords();
     answerList = wordsList;
-    console.log(answerList);
     for(i = 0; i < wordsList.length; i++) {
         missionWordsWrapper[i].textContent = "Draw " + wordsList[i];
     }
