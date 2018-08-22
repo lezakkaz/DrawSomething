@@ -17,6 +17,11 @@ $(document).ready(function() {
             clearTable(index);
         }
     );
+    $("#start-game").click(
+        function() {
+            $(".confirm-wrapper").hide();
+        }
+    );
     $(function() {
         canvas1 = window._canvas = new fabric.Canvas('drawing-section-1');
         canvas1.backgroundColor = '#ffffff';
