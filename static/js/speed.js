@@ -6,6 +6,7 @@ var coords2 = [];
 var coords3 = [];
 var answerList = [];
 var classNames = [];
+var scoreList = [0,0,0];
 var mousePressed = false;
 
 $(document).ready(function() {
@@ -123,7 +124,7 @@ function getFrame(index) {
         const names = getClassNames(indices);
 
         setTable(names, index);
-        getScore(names, index);
+        setAnswerContent(names, index);
     }
 }
 
@@ -137,11 +138,15 @@ function setTable(classes, index){
 function clearTable(index) {
     var answersTag = document.getElementsByClassName("answer"+(index+1));
     var answerWrapper = document.getElementsByClassName("answer"+(index+1)+"-wrapper");
+    var achivedPoint = document.getElementsByClassName("score"+(index+1));
+    $(achivedPoint).text("");
     $(answerWrapper).css("color","black");
+    scoreList[index] = 0;
     console.log($(answerWrapper).children())
     for(i = 0; i < answersTag.length; i++) {
         answersTag[i].textContent = (i+1) + ". ---";
     }
+    setScore();
 }
 
 function getImageData(index) {
@@ -296,17 +301,31 @@ async function displayMissionWords() {
     }
 }
 
-function getScore(answer, index) {
+function setAnswerContent(answer, index) {
     var answerIdx = answer.indexOf(answerList[index]);
     var answerCandidates = document.getElementsByClassName("answer"+(index+1)+"-wrapper");
+    var achivedPoint = document.getElementsByClassName("score"+(index+1));
+    scoreList[index] = 0;
     $(answerCandidates).css("color","black");
+    $(achivedPoint).text("");
     if(answerIdx == 0) {
         answerCandidates[0].style.color = "red";
+        scoreList[index] = 20;
+        achivedPoint[0].textContent = "+20";
     } else if(answerIdx == 1) {
         answerCandidates[1].style.color = "red";
+        scoreList[index] = 10;
+        achivedPoint[1].textContent = "+10";
     } else if(answerIdx == 2){
         answerCandidates[2].style.color = "red";
+        scoreList[index] = 5;
+        achivedPoint[2].textContent = "+5";
     }
+    setScore();
+}
+
+function setScore() {
+    document.getElementById("speed-draw-score").textContent = scoreList.reduce((a, b) => a + b, 0);
 }
 
 function allowDrawing() {
