@@ -5,12 +5,10 @@ var coords1 = [];
 var coords2 = [];
 var coords3 = [];
 var answerList = [];
+var classNames = [];
 var mousePressed = false;
 
-tempWordsList = ["Banana","Flamingo","Dog","Elephant","Cat","Tent","Building","Book","Laptop","Car"];
-
 $(document).ready(function() { 
-    displayMissionWords();
     $(".reset-canvas").click(
         function() {
             var index = $(".reset-canvas").index(this);
@@ -26,7 +24,7 @@ $(document).ready(function() {
         canvas1.renderAll();
         //setup listeners 
         canvas1.on('mouse:up', function(e) {
-            
+            getFrame();
             mousePressed = false
         });
         canvas1.on('mouse:down', function(e) {
@@ -76,6 +74,141 @@ $(document).ready(function() {
     })
 });
 
+async function start() {
+    
+    //load the model 
+    model = await tf.loadModel('../static/model_cnn/model.json');
+    
+    //warm up 
+    model.predict(tf.zeros([1, 28, 28, 1]));
+    
+    //load the class names
+    await loadDict();
+}
+
+async function loadDict() {
+    loc = '../static/model_cnn/class_names.txt'
+    await $.ajax({
+        url: loc,
+        dataType: 'text',
+    }).done(success);
+}
+
+function success(data) {
+    const lst = data.split(/\n/);
+    for (var i = 0; i < lst.length - 1; i++) {
+        let symbol = lst[i];
+        classNames[i] = symbol;
+    }
+    displayMissionWords();
+}
+
+function getFrame() {
+    //make sure we have at least two recorded coordinates 
+    if (coords1.length >= 2) {
+
+        //get the image data from the canvas 
+        const imgData = getImageData();
+
+        //get the prediction 
+        const pred = model.predict(preprocess(imgData)).dataSync();
+
+        //find the top 5 predictions 
+        const indices = findIndicesOfMax(pred, 5);
+        const probs = findTopValues(pred, 5);
+        const names = getClassNames(indices);
+
+        //set the table ccccccccccccc
+        // setTable(names, probs);
+        console.log(names,probs);
+    }
+}
+
+function getImageData() {
+    //get the minimum bounding box around the drawing 
+    const mbb = getMinBox()
+
+    //get image data according to dpi 
+    const dpi = window.devicePixelRatio
+    const imgData = canvas1.contextContainer.getImageData(mbb.min.x * dpi, mbb.min.y * dpi,
+                                                  (mbb.max.x - mbb.min.x) * dpi, (mbb.max.y - mbb.min.y) * dpi);
+    return imgData
+}
+
+function preprocess(imgData) {
+    return tf.tidy(() => {
+        //convert to a tensor 
+        let tensor = tf.fromPixels(imgData, numChannels = 1)
+        
+        //resize 
+        const resized = tf.image.resizeBilinear(tensor, [28, 28]).toFloat()
+        
+        //normalize 
+        const offset = tf.scalar(255.0);
+        const normalized = tf.scalar(1.0).sub(resized.div(offset));
+
+        //We add a dimension to get a batch shape 
+        const batched = normalized.expandDims(0)
+        return batched
+    })
+}
+
+function findIndicesOfMax(inp, count) {
+    var outp = [];
+    for (var i = 0; i < inp.length; i++) {
+        outp.push(i); // add index to output array
+        if (outp.length > count) {
+            outp.sort(function(a, b) {
+                return inp[b] - inp[a];
+            }); // descending sort the output array
+            outp.pop(); // remove the last index (index of smallest element in output array)
+        }
+    }
+    return outp;
+}
+
+function findTopValues(inp, count) {
+    var outp = [];
+    let indices = findIndicesOfMax(inp, count)
+    // show 5 greatest scores
+    for (var i = 0; i < indices.length; i++)
+        outp[i] = inp[indices[i]]
+    return outp
+}
+
+function getClassNames(indices) {
+    var outp = []
+    for (var i = 0; i < indices.length; i++)
+        outp[i] = classNames[indices[i]]
+    return outp
+}
+
+function getMinBox() {
+    //get coordinates 
+    var coorX = coords1.map(function(p) {
+        return p.x
+    });
+    var coorY = coords1.map(function(p) {
+        return p.y
+    });
+
+    //find top left and bottom right corners 
+    var min_coords = {
+        x: Math.min.apply(null, coorX),
+        y: Math.min.apply(null, coorY)
+    }
+    var max_coords = {
+        x: Math.max.apply(null, coorX),
+        y: Math.max.apply(null, coorY)
+    }
+
+    //return as strucut 
+    return {
+        min: min_coords,
+        max: max_coords
+    }
+}
+
 function recordCoordinates(event, index) {
     var canvasStr = "canvas"+(index);
     var canvasObj = eval("("+canvasStr+")");
@@ -89,8 +222,8 @@ function recordCoordinates(event, index) {
     if (posX >= 0 && posY >= 0 && mousePressed) {
         coordsObj.push(pointer)
     }
-    console.log("Coor of " + index + " is ");
-    console.log(coordsObj);
+    // console.log("Coor of " + index + " is ");
+    // console.log(coordsObj);
 }
 
 function clearCanvas(index) {
@@ -98,7 +231,7 @@ function clearCanvas(index) {
     var canvasObj = eval("("+canvasStr+")");
     var coordsStr = "coords"+(index+1);
     var coordsObj = eval("("+coordsStr+")");
-    console.log(coordsObj)
+    // console.log(coordsObj)
     canvasObj.clear();
     canvasObj.backgroundColor = '#ffffff';
     while(coordsObj.length > 0) {
@@ -118,19 +251,22 @@ function generateRandomNumList() {
 }
 
 function generateRandomNum() {
-    return Math.floor((Math.random() * tempWordsList.length) + 0);
+    return Math.floor((Math.random() * classNames.length) + 0);
 }
 
 async function pickMissionWords() {
     var pickedIndex = await generateRandomNumList();
-    return [tempWordsList[pickedIndex[0]],tempWordsList[pickedIndex[1]],tempWordsList[pickedIndex[2]]];
+    return [classNames[pickedIndex[0]],classNames[pickedIndex[1]],classNames[pickedIndex[2]]];
 }
 
 async function displayMissionWords() {
     var missionWordsWrapper = document.getElementsByClassName("user-mission-text");
     var wordsList = await pickMissionWords();
     answerList = wordsList;
+    console.log(answerList);
     for(i = 0; i < wordsList.length; i++) {
         missionWordsWrapper[i].textContent = "Draw " + wordsList[i];
     }
 }
+
+start();
