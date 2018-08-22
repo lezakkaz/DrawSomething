@@ -20,6 +20,7 @@ $(document).ready(function() {
     $("#start-game").click(
         function() {
             $(".confirm-wrapper").hide();
+            startTimer(60);
         }
     );
     $(function() {
@@ -80,6 +81,27 @@ $(document).ready(function() {
         });
     })
 });
+
+function startTimer(duration) {
+    var timer = duration, seconds;
+    var timer_container = document.getElementById("timer");
+    var setTimer = setInterval(function () {
+        seconds = parseInt(timer % 61, 10);
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        timer_container.textContent = seconds;
+        if (timer < 10) {
+            timer_container.style.color = "red";
+        }
+        if (--timer < 0) {
+            timer_container.textContent = "Game Over";
+            console.log("Game over!")
+            clearInterval(setTimer);
+            disableDrawing();
+            return;
+        }
+    }, 1000);
+}
 
 async function start() {
     
@@ -331,6 +353,7 @@ function setAnswerContent(answer, index) {
 
 function setScore() {
     document.getElementById("speed-draw-score").textContent = scoreList.reduce((a, b) => a + b, 0);
+    return scoreList.reduce((a, b) => a + b, 0);
 }
 
 function allowDrawing() {
@@ -338,6 +361,16 @@ function allowDrawing() {
     canvas2.isDrawingMode = 1;
     canvas3.isDrawingMode = 1;
     console.log('Model Loaded');
+}
+
+function disableDrawing() {
+    canvas1.isDrawingMode = 0;
+    canvas2.isDrawingMode = 0;
+    canvas3.isDrawingMode = 0;
+    var button = document.getElementsByClassName("reset-canvas");
+    $("canvas").css('pointer-events','none');
+    $(button).prop('disabled',true);
+    $(button).css('opacity','0.4');
 }
 
 start();
