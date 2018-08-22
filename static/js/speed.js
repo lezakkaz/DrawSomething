@@ -117,14 +117,16 @@ function getFrame(index) {
         const pred = model.predict(preprocess(imgData)).dataSync();
 
         //find the top 5 predictions 
-        const indices = findIndicesOfMax(pred, 5);
-        const probs = findTopValues(pred, 5);
+        const indices = findIndicesOfMax(pred, 3);
+        const probs = findTopValues(pred, 3);
         const names = getClassNames(indices);
 
-        //set the table ccccccccccccc
-        // setTable(names, probs);
-        console.log(names,probs);
+        setTable(names, index);
     }
+}
+
+function setTable(classes, index){
+    console.log(classes, index);
 }
 
 function getImageData(index) {
