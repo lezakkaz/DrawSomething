@@ -123,6 +123,7 @@ function getFrame(index) {
         const names = getClassNames(indices);
 
         setTable(names, index);
+        getScore(names, index);
     }
 }
 
@@ -135,6 +136,9 @@ function setTable(classes, index){
 
 function clearTable(index) {
     var answersTag = document.getElementsByClassName("answer"+(index+1));
+    var answerWrapper = document.getElementsByClassName("answer"+(index+1)+"-wrapper");
+    $(answerWrapper).css("color","black");
+    console.log($(answerWrapper).children())
     for(i = 0; i < answersTag.length; i++) {
         answersTag[i].textContent = (i+1) + ". ---";
     }
@@ -289,6 +293,19 @@ async function displayMissionWords() {
     console.log(answerList);
     for(i = 0; i < wordsList.length; i++) {
         missionWordsWrapper[i].textContent = "Draw " + wordsList[i];
+    }
+}
+
+function getScore(answer, index) {
+    var answerIdx = answer.indexOf(answerList[index]);
+    var answerCandidates = document.getElementsByClassName("answer"+(index+1)+"-wrapper");
+    $(answerCandidates).css("color","black");
+    if(answerIdx == 0) {
+        answerCandidates[0].style.color = "red";
+    } else if(answerIdx == 1) {
+        answerCandidates[1].style.color = "red";
+    } else if(answerIdx == 2){
+        answerCandidates[2].style.color = "red";
     }
 }
 
