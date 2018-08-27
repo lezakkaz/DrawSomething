@@ -9,8 +9,38 @@
 </head>
 <body>
     <div id="background">
-        <div id="game-wrapper">
-            
+        <div id="game-wrapper" class="padding-50">
+            <div class="inner-game-header full-width">
+                <div class="score-wrapper">
+                    <span>Total Score:</span>
+                    <span id="speed-draw-score">0</span>
+                    <span>/60 points</span>
+                </div>
+                <div class="game-info-wrapper">
+                    <span>Guess Drawing</span>
+                    <span>Guess what AI draws</span>
+                </div>
+            </div>
+            <div class="game-contents-wrapper full-width">
+                <div class="mission-level-wrapper">
+                    <div class="drawing-level">level 10</div>
+                    <div class="drawing-level">level 09</div>
+                    <div class="drawing-level">level 08</div>
+                    <div class="drawing-level">level 07</div>
+                    <div class="drawing-level">level 06</div>
+                    <div class="drawing-level">level 05</div>
+                    <div class="drawing-level">level 04</div>
+                    <div class="drawing-level">level 03</div>
+                    <div class="drawing-level">level 02</div>
+                    <div class="drawing-level">level 01</div>
+                </div>
+                <div class="ai-canvas-wrapper">
+                    <canvas></canvas>
+                </div>
+                <div class="user-input-wrapper">
+                    <input type="text">
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

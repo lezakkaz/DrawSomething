@@ -222,7 +222,7 @@ body,html{
 .game-info-wrapper span:nth-child(2) {
     font-size: 17px;
 }
-.speed-draw-contents {
+.game-contents-wrapper {
     position: absolute;
     bottom: 50px;
     height: 550px;
@@ -288,4 +288,55 @@ body,html{
 .added-score {
     float: right;
     margin-right: 20px;
+}
+
+/********** Guess Drawing **********/
+ .ai-canvas-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 450px;
+    margin: auto;
+    height: 450px;
+ }
+ .ai-canvas-wrapper canvas {
+    border: 4px solid #666;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    box-shadow: 1px 1px 10px 1px #aaa;
+ }
+ .mission-level-wrapper {
+    position: absolute;
+    display: inline-block;
+    height: 450px;
+    width: 200px;
+    left: 60px;
+    font-size: 32px;
+ }
+ .user-input-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 70px;
+ }
+.user-input-wrapper input {
+    position: absolute;
+    border: 2px solid #666;
+    width: 300px;
+    height: 40px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: auto;
+    font-size: 25px;
+    padding: 0px 10px;
+}
+.user-input-wrapper input:focus {
+    outline: none;
 }
