@@ -291,6 +291,14 @@ body,html{
 }
 
 /********** Guess Drawing **********/
+#defaultCanvas0 {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+}
  .ai-canvas-wrapper {
     position: absolute;
     left: 0;
