@@ -62,7 +62,7 @@ var setup = function() {
   rnn_model = new SketchRNN(rnn_model_data);
 
   function generate(z, y_start, c,temperature = 0.1) {
-    x_position = 120;
+    x_position = 220;
     drawing = rnn_model.decode(z, temperature);
     drawing = rnn_model.scale_drawing(drawing, 90);
     drawing = rnn_model.center_drawing(drawing);
@@ -71,6 +71,6 @@ var setup = function() {
 
   // create a random drawing.
   var z_0 = rnn_model.random_latent_vector();
-  generate(z_0, 120, color(220, 0, 0));
+  generate(z_0, 140, color(220, 0, 0));
 
 };

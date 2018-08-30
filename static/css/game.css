@@ -308,13 +308,16 @@ body,html{
     margin: auto;
     height: 450px;
  }
- .ai-canvas-wrapper canvas {
+ .ai-canvas-wrapper {
+    position: fixed;
     border: 4px solid #666;
-    width: 100%;
-    height: 100%;
+    width: 480px;
+    height: 320px;
     margin: auto;
     left: 0;
     right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
     box-shadow: 1px 1px 10px 1px #aaa;
  }
  .mission-level-wrapper {
