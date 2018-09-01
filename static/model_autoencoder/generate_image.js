@@ -1,8 +1,6 @@
 var rnn_model;
 var rnn_model_data;
-var screen_width;
-var screen_height;
-
+var default_temperature = 1
 var use_large_models = true;
 
 
@@ -39,17 +37,22 @@ var draw_example = function(example, start_x, start_y, line_color) {
 
 };
 
-var setup = function() {
+var setup = function(temperature) {
+  if(temperature) {
+    default_temperature = temperature;
+    console.log("Temperature obtained!")
+  }
   
-  var drawing, i, temperature, x_position, cnv;
+  
+  var drawing, i, x_position, cnv;
 
   // make sure we enforce some minimum size of our demo
-  screen_width = 480;
-  screen_height = 320;
+  var screen_width = 480;
+  var screen_height = 320;
   x_pos = 900;
   y_pos = 900;
 
-  cnv = createCanvas(screen_width, screen_height, SVG);
+  createCanvas(screen_width, screen_height);
 
   function centerCanvas() {
     var x = (windowWidth - width) / 2;
@@ -58,12 +61,13 @@ var setup = function() {
   }
   centerCanvas();
   // declare sketch_rnn model
-  var rnn_model_data = JSON.parse(model_raw_data);
+  rnn_model_data = JSON.parse(model_raw_data);
   rnn_model = new SketchRNN(rnn_model_data);
 
-  function generate(z, y_start, c,temperature = 0.1) {
+  function generate(z, y_start, c) {
+    console.log(default_temperature);
     x_position = 220;
-    drawing = rnn_model.decode(z, temperature);
+    drawing = rnn_model.decode(z, default_temperature);
     drawing = rnn_model.scale_drawing(drawing, 90);
     drawing = rnn_model.center_drawing(drawing);
     draw_example(drawing, x_position, y_start, c);
@@ -74,3 +78,7 @@ var setup = function() {
   generate(z_0, 140, color(220, 0, 0));
 
 };
+
+function setNewDrawing(temperature) {
+  setup(temperature);
+}
