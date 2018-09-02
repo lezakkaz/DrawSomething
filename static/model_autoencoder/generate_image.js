@@ -70,5 +70,5 @@ var setup = function() {
   // create a random drawing.
   var z_0 = rnn_model.random_latent_vector();
   generate(z_0, 140, color(220, 0, 0));
-
+  stopLoading();
 };

@@ -22,3 +22,11 @@ $(document).ready(function() {
         }
     );
 });
+
+function startLoading(){
+    document.getElementsByClassName("animationload")[0].style.display = "block";
+}
+
+function stopLoading(){
+    document.getElementsByClassName("animationload")[0].style.display = "none";
+}
