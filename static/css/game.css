@@ -294,9 +294,9 @@ body,html{
 .drawing-level {
     opacity: 0.2;
 }
-.drawing-level:last-child {
+/* .drawing-level:last-child {
     opacity: 1;
-}
+} */
 #defaultCanvas0 {
     position: absolute;
     margin: auto;
@@ -380,14 +380,12 @@ body,html{
     outline: none;
 }
 
-.correct-drawing-level{
-    text-decoration: line-through;
+.is-corrent{
     color: green;
     opacity: 0.5;
 }
 
-.wrong-drawing-level{
-    text-decoration: line-through;
+.is-wrong{
     color: red;
     opacity: 0.5;
 }

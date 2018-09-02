@@ -10,5 +10,7 @@ function getRawData(className) {
         model_raw_data = JSON.stringify(data);
         console.log("Data obtained");
         setup();
+        setHintPlaceholder(className);
+        setStageStyle();
     });
 }
