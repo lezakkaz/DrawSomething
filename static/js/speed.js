@@ -85,6 +85,9 @@ $(document).ready(function() {
 function startTimer(duration) {
     var timer = duration, seconds;
     var timer_container = document.getElementById("timer");
+    
+    timer_container.style.color = "black";
+    
     var setTimer = setInterval(function () {
         seconds = parseInt(timer % 61, 10);
         seconds = seconds < 10 ? "0" + seconds : seconds;
