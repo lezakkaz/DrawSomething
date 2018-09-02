@@ -291,6 +291,12 @@ body,html{
 }
 
 /********** Guess Drawing **********/
+.drawing-level {
+    opacity: 0.2;
+}
+.drawing-level:last-child {
+    opacity: 1;
+}
 #defaultCanvas0 {
     position: absolute;
     margin: auto;
