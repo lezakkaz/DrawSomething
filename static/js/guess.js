@@ -167,8 +167,9 @@ function generateSelectedDrawing() {
     var pickedIndex = generateRandomNum();
     classList.splice(pickedIndex,1);
     console.log(classList.length);
-    answer = classList[pickedIndex];
-    getRawData(answer);
+    answer = classList[pickedIndex].replace("_"," ");
+    console.log(answer)
+    getRawData(classList[pickedIndex]);
 }
 
 function setHintPlaceholder(className) {
