@@ -1,6 +1,6 @@
 var rnn_model;
 var rnn_model_data;
-var temperature = 1
+var temperature = 0.1;
 var use_large_models = true;
 
 

@@ -1,4 +1,3 @@
-var set_temperature = 1;
 var current_stage = 1; // 0~9
 
 $(document).ready(function() {
@@ -17,7 +16,7 @@ function moveToNextLevel() {
     }
     else {
         setStageStyle();
-        temperature -= 0.1;
+        temperature += 0.1;
         current_stage += 1;
         setup();
     }
