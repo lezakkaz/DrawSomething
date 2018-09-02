@@ -381,4 +381,25 @@ function disableDrawing() {
     $(button).css('opacity','0.4');
 }
 
+function enableDrawing() {
+    canvas1.isDrawingMode = 1;
+    canvas2.isDrawingMode = 1;
+    canvas3.isDrawingMode = 1;
+    var button = document.getElementsByClassName("reset-canvas");
+    $("canvas").css('pointer-events','auto');
+    $(button).prop('disabled',false);
+    $(button).css('opacity', 1);
+}
+
+function resetGame(){
+    enableDrawing();
+    displayMissionWords();
+    for(let reset_canvas of $(".reset-canvas")){
+        let index = $(".reset-canvas").index(reset_canvas)
+        clearCanvas(index);
+        clearTable(index);
+    }
+    startTimer(60);
+}
+
 start();
