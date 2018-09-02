@@ -7,6 +7,11 @@ $(document).ready(function() {
             moveToNextLevel();
         }
     })
+    $("#return-home").click(
+        function() {
+            window.location.href = "../";
+        }
+    );
 })
 
 function moveToNextLevel() {
