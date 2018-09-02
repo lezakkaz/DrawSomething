@@ -20,7 +20,8 @@ $(document).ready(function() {
     $("#start-game").click(
         function() {
             $(".confirm-wrapper").hide();
-            startTimer(60);
+            // startTimer(60);
+            resetGame();
         }
     );
     $(function() {
@@ -101,6 +102,8 @@ function startTimer(duration) {
             console.log("Game over!")
             clearInterval(setTimer);
             disableDrawing();
+            enableRetryButton();
+            $(".confirm-wrapper").show();
             return;
         }
     }, 1000);
@@ -110,6 +113,12 @@ function enableStartButton() {
     var start_button = document.getElementById("start-game");
     start_button.removeAttribute("disabled");
     start_button.textContent = "S T A R T";
+}
+
+function enableRetryButton() {
+    var start_button = document.getElementById("start-game");
+    start_button.removeAttribute("disabled");
+    start_button.textContent = "R E T R Y";
 }
 
 async function start() {
