@@ -379,3 +379,15 @@ body,html{
 #return-home:focus{
     outline: none;
 }
+
+.correct-drawing-level{
+    text-decoration: line-through;
+    color: green;
+    opacity: 0.5;
+}
+
+.worng-drawing-level{
+    text-decoration: line-through;
+    color: red;
+    opacity: 0.5;
+}
