@@ -20,7 +20,8 @@ $(document).ready(function() {
     $("#start-game").click(
         function() {
             $(".confirm-wrapper").hide();
-            startTimer(60);
+            // startTimer(60);
+            resetGame();
         }
     );
     $(function() {
@@ -80,11 +81,19 @@ $(document).ready(function() {
             recordCoordinates(e,2)
         });
     })
+    $("#return-home").click(
+        function() {
+            window.location.href = "../";
+        }
+    );
 });
 
 function startTimer(duration) {
     var timer = duration, seconds;
     var timer_container = document.getElementById("timer");
+    
+    timer_container.style.color = "black";
+    
     var setTimer = setInterval(function () {
         seconds = parseInt(timer % 61, 10);
         seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -98,6 +107,8 @@ function startTimer(duration) {
             console.log("Game over!")
             clearInterval(setTimer);
             disableDrawing();
+            enableRetryButton();
+            $(".confirm-wrapper").show();
             return;
         }
     }, 1000);
@@ -107,6 +118,12 @@ function enableStartButton() {
     var start_button = document.getElementById("start-game");
     start_button.removeAttribute("disabled");
     start_button.textContent = "S T A R T";
+}
+
+function enableRetryButton() {
+    var start_button = document.getElementById("start-game");
+    start_button.removeAttribute("disabled");
+    start_button.textContent = "R E T R Y";
 }
 
 async function start() {
@@ -376,6 +393,27 @@ function disableDrawing() {
     $("canvas").css('pointer-events','none');
     $(button).prop('disabled',true);
     $(button).css('opacity','0.4');
+}
+
+function enableDrawing() {
+    canvas1.isDrawingMode = 1;
+    canvas2.isDrawingMode = 1;
+    canvas3.isDrawingMode = 1;
+    var button = document.getElementsByClassName("reset-canvas");
+    $("canvas").css('pointer-events','auto');
+    $(button).prop('disabled',false);
+    $(button).css('opacity', 1);
+}
+
+function resetGame(){
+    enableDrawing();
+    displayMissionWords();
+    for(let reset_canvas of $(".reset-canvas")){
+        let index = $(".reset-canvas").index(reset_canvas)
+        clearCanvas(index);
+        clearTable(index);
+    }
+    startTimer(60);
 }
 
 start();
