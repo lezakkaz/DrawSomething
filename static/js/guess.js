@@ -1,5 +1,6 @@
 var current_stage = 1; // 0~9
 var answer;
+var answer_count = 0;
 var classList = [
     'ant',
     'antyoga',
@@ -123,6 +124,8 @@ $(document).ready(function() {
         if(event.keyCode === 13) {
             if($('#user-input').val() === answer) {
                 stages[10-current_stage].className += " is-corrent";
+                answer_count += 1;
+                document.getElementById("guess-draw-score").textContent = answer_count;
             }
             else {
                 stages[10-current_stage].className += " is-wrong";
