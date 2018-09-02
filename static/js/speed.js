@@ -29,7 +29,7 @@ $(document).ready(function() {
         canvas1.backgroundColor = '#ffffff';
         canvas1.isDrawingMode = 0;
         canvas1.freeDrawingBrush.color = "black";
-        canvas1.freeDrawingBrush.width = 3;
+        canvas1.freeDrawingBrush.width = 6;
         canvas1.renderAll();
         //setup listeners 
         canvas1.on('mouse:up', function(e) {
@@ -48,7 +48,7 @@ $(document).ready(function() {
         canvas2.backgroundColor = '#ffffff';
         canvas2.isDrawingMode = 0;
         canvas2.freeDrawingBrush.color = "black";
-        canvas2.freeDrawingBrush.width = 3;
+        canvas2.freeDrawingBrush.width = 6;
         canvas2.renderAll();
         //setup listeners 
         canvas2.on('mouse:up', function(e) {
@@ -67,7 +67,7 @@ $(document).ready(function() {
         canvas3.backgroundColor = '#ffffff';
         canvas3.isDrawingMode = 0;
         canvas3.freeDrawingBrush.color = "black";
-        canvas3.freeDrawingBrush.width = 3;
+        canvas3.freeDrawingBrush.width = 6;
         canvas3.renderAll();
         //setup listeners 
         canvas3.on('mouse:up', function(e) {
