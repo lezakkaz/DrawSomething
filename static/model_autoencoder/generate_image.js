@@ -72,3 +72,13 @@ var setup = function() {
     stopLoading();
   }
 };
+
+var wordVec;
+$.get("https://s3.ap-northeast-2.amazonaws.com/elice-project-drawsomething/word2vec.json", function(data, status){
+  wordVec = data;
+});
+
+function word2vec(word){
+  var idx = wordVec.findIndex((item,idx) => {return item[0] === word});
+  console.log(wordVec[idx][1]);
+}
