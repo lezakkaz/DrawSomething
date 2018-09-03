@@ -405,7 +405,7 @@ body,html{
 
 #guess-answer{
     position: absolute;
-    width: 200px;
+    width: fit-content;
     height: 50px;
     top: 50%;
     left: 0;
@@ -414,7 +414,7 @@ body,html{
     text-align: center;
     transform: translate(0, 100%);
     color: #FFF;
-    font-size: 15px;
+    font-size: 25px;
     z-index: 9999;
     transition: 200ms;
 }
