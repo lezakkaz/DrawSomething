@@ -122,7 +122,7 @@ $(document).ready(function() {
     $('#user-input').keypress(function(event) {
         if(event.keyCode === 13) {
             let answer_txt = document.getElementById("answer-txt");
-            if($('#user-input').val() === answer) {
+            if($('#user-input').val().toLowerCase() === answer) {
                 stages[10-current_stage].className += " is-correct";
                 answer_txt.innerHTML = "Great";
                 answer_count += 1;
