@@ -6,6 +6,7 @@ var coords2 = [];
 var coords3 = [];
 var answerList = [];
 var classNames = [];
+var filtered_classNames = [];
 var scoreList = [0,0,0];
 var mousePressed = false;
 
@@ -156,6 +157,7 @@ function success(data) {
         let symbol = lst[i];
         classNames[i] = symbol;
     }
+    classNames = removeUnderScore(classNames);
     displayMissionWords();
 }
 
@@ -403,6 +405,15 @@ function enableDrawing() {
     $("canvas").css('pointer-events','auto');
     $(button).prop('disabled',false);
     $(button).css('opacity', 1);
+}
+
+function removeUnderScore(wordlist) {
+    for(i in wordlist) {
+        if(wordlist[i].includes("_")){
+            wordlist[i] = wordlist[i].replace("_", " ");
+        }
+    }
+    return wordlist;
 }
 
 function resetGame(){
