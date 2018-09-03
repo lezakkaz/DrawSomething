@@ -16,6 +16,14 @@
     - right click and download as fabric.js
   #### 1. Copy the file
     - Copy and Paste the file into our project "static/js/"
+
+## Download Magenta
+  #### 0. Download required file
+    - magenta : https://github.com/tensorflow/magenta-demos
+    - clone or download zip
+  #### 1. Copy the file
+    - Copy the sketch-rnn-js/lib/(p5.js, p5.svg.js, sketch_rnn.js)
+    - Paste files into our project "static/model_autoencoder/lib/"
     
 ## Windows
   #### 0. Clone Project
