@@ -119,7 +119,6 @@ var classList = [
 var stages = document.getElementsByClassName("drawing-level");
 
 $(document).ready(function() {
-    generateSelectedDrawing();
     $('#user-input').keypress(function(event) {
         if(event.keyCode === 13) {
             if($('#user-input').val() === answer) {
@@ -138,6 +137,12 @@ $(document).ready(function() {
             window.location.href = "../";
         }
     );
+    $("#start-game").click(
+        function(){
+            $(".confirm-wrapper").hide();
+            generateSelectedDrawing();
+        }
+    )
 })
 
 function moveToNextLevel() {
