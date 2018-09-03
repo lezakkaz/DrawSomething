@@ -6,7 +6,6 @@ var coords2 = [];
 var coords3 = [];
 var answerList = [];
 var classNames = [];
-var filtered_classNames = [];
 var scoreList = [0,0,0];
 var mousePressed = false;
 
@@ -174,7 +173,6 @@ function getFrame(index) {
 
         //find the top 3 predictions 
         const indices = findIndicesOfMax(pred, 3);
-        const probs = findTopValues(pred, 3);
         const names = getClassNames(indices);
 
         setTable(names, index);
