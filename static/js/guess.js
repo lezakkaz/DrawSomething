@@ -123,7 +123,7 @@ $(document).ready(function() {
     $('#user-input').keypress(function(event) {
         if(event.keyCode === 13) {
             if($('#user-input').val() === answer) {
-                stages[10-current_stage].className += " is-corrent";
+                stages[10-current_stage].className += " is-correct";
                 answer_count += 1;
                 document.getElementById("guess-draw-score").textContent = answer_count;
             }
