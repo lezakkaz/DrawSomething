@@ -403,7 +403,7 @@ body,html{
     opacity: 0.5;
 }
 
-#guess-answer{
+.guess-answer{
     position: absolute;
     width: fit-content;
     height: 50px;
@@ -415,6 +415,22 @@ body,html{
     transform: translate(0, 100%);
     color: #FFF;
     font-size: 25px;
+    z-index: 9999;
+    transition: 200ms;
+}
+
+.answer-count{
+    position: absolute;
+    width: fit-content;
+    height: 50px;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    transform: translate(0, -250%);
+    color: #FFF;
+    font-size: 50px;
     z-index: 9999;
     transition: 200ms;
 }

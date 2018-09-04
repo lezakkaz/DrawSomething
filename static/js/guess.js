@@ -122,15 +122,19 @@ $(document).ready(function() {
     $('#user-input').keypress(function(event) {
         if(event.keyCode === 13) {
             let answer_txt = document.getElementById("answer-txt");
+            let last_answer_txt = document.getElementById("last-answer-txt");
+            
             if($('#user-input').val().toLowerCase() === answer) {
                 stages[10-current_stage].className += " is-correct";
                 answer_txt.textContent = "Great!!";
+                last_answer_txt.textContent = "Great!!";
                 answer_count += 1;
                 document.getElementById("guess-draw-score").textContent = answer_count;
             }
             else {
                 stages[10-current_stage].className += " is-wrong";
                 answer_txt.textContent = "It was "+answer+"...";
+                last_answer_txt.textContent = "It was "+answer+"...";
             }
             moveToNextLevel();
         }
@@ -142,6 +146,10 @@ $(document).ready(function() {
     );
     $("#start-game").click(
         function(){
+            let start_button = document.getElementById("start-game");
+            if(start_button.textContent == "R E T R Y"){
+                location.reload();
+            }
             $(".confirm-wrapper").hide();
             generateSelectedDrawing();
         }
@@ -153,7 +161,12 @@ function moveToNextLevel() {
     var user_input = document.getElementById("user-input");
     user_input.setAttribute("placeholder", "");
     if(current_stage === 10) {
-        alert("게임이 종료되었습니다.");
+        let answer_count_txt = document.getElementById("answer-count-txt");
+        answer_count_txt.innerHTML = answer_count + " / 10";
+        let start_button = document.getElementById("start-game");
+        start_button.textContent = "R E T R Y";
+        $(".confirm-wrapper").show();
+        // alert("게임이 종료되었습니다.");
         return;
     }
     else {

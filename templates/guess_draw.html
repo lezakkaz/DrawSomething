@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../static/css/loading.css">
 </head>
 <body>
-    <div class="confirm-wrapper"><button id="start-game">S T A R T</button></div>
+    <div class="confirm-wrapper"><div class="answer-count"><span id="answer-count-txt"></span></div><button id="start-game">S T A R T</button><div class="guess-answer"><span id="last-answer-txt"></span></div></div>
     <div id="background">
         <div id="game-wrapper" class="padding-50">
             <button id="return-home"><img src="../static/resource/out.png" alt=""></button>
@@ -48,7 +48,7 @@
     </div>
     <div class="animationload">
         <div class="osahanloading"></div>
-        <div id="guess-answer"><span id="answer-txt"></span></div>
+        <div class="guess-answer"><span id="answer-txt"></span></div>
     </div>
     <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script language="javascript" type="text/javascript" src="../static/js/main.js"></script>
