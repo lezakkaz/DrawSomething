@@ -1,8 +1,12 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 from static.model_autoencoder.generate_image_by_class import *
 import os
 
 app = Flask(__name__)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static/resource'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route("/")
 def home():
