@@ -166,7 +166,6 @@ function moveToNextLevel() {
         let start_button = document.getElementById("start-game");
         start_button.textContent = "R E T R Y";
         $(".confirm-wrapper").show();
-        // alert("게임이 종료되었습니다.");
         return;
     }
     else {
