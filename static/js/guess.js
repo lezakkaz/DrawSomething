@@ -148,6 +148,7 @@ $(document).ready(function() {
         function(){
             let start_button = document.getElementById("start-game");
             if(start_button.textContent == "R E T R Y"){
+                // need refesh -> initialize
                 location.reload();
             }
             $(".confirm-wrapper").hide();
