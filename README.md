@@ -23,6 +23,7 @@
     - clone or download zip
   #### 1. Copy the file
     - Copy the sketch-rnn-js/lib/(p5.js, p5.svg.js, sketch_rnn.js)
+    - Create lib folder into our project "static/model_autoencoder"
     - Paste files into our project "static/model_autoencoder/lib/"
     
 ## Windows
