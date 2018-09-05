@@ -139,11 +139,6 @@ $(document).ready(function() {
             moveToNextLevel();
         }
     })
-    $("#return-home").click(
-        function() {
-            window.location.href = "../";
-        }
-    );
     $("#start-game").click(
         function(){
             let start_button = document.getElementById("start-game");

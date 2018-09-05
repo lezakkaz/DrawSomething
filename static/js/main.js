@@ -21,6 +21,11 @@ $(document).ready(function() {
             }
         }
     );
+    $("#return-home").click(
+        function() {
+            window.location.href = "../";
+        }
+    );
 });
 
 function startLoading(){

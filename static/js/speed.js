@@ -81,11 +81,6 @@ $(document).ready(function() {
             recordCoordinates(e,2)
         });
     })
-    $("#return-home").click(
-        function() {
-            window.location.href = "../";
-        }
-    );
 });
 
 function startTimer(duration) {
