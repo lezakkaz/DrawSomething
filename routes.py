@@ -24,6 +24,10 @@ def speed_draw():
 def guess_draw():
     return render_template('guess_draw.html')
 
+@app.route("/about")
+def about():
+    return render_template('about.html')
+
 # model list : aaron_sheep, catbus, elephantpig, flamingo, owl
 @app.route("/auto",methods=['GET'])
 def autoEncoderGenerateImage():
