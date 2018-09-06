@@ -15,11 +15,12 @@ $.get("https://s3.ap-northeast-2.amazonaws.com/elice-project-drawsomething/word2
 
 function word2vec(word){
     var idx = wordVec.findIndex((item,idx) => {return item[0] === word});
-    if(typeof wordVec[idx] == 'undefined') {
+    var random = Math.floor((Math.random() * 10)) % 3;
+    if(typeof wordVec[idx+random] == 'undefined') {
         text.textContent = "Sorry... I'm not catching you. Could you draw again?";
         confirm_button.style.display = "none";
     } else {
-        console.log(wordVec[idx][1]);
+        console.log(wordVec[idx+random][1]);
         confirm_button.style.display = "inline-block";
     }
 }
