@@ -24,6 +24,10 @@ def speed_draw():
 def guess_draw():
     return render_template('guess_draw.html')
 
+@app.route("/draw_together")
+def draw_together():
+    return render_template('draw_together.html')
+
 @app.route("/about")
 def about():
     return render_template('about.html')
