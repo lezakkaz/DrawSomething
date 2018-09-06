@@ -1,0 +1,38 @@
+.canvas-container {
+    width: 400px !important;
+    height: 400px !important;
+    user-select: none;
+    position: relative;
+    display: inline-block;
+}
+.canvas-container canvas {
+    z-index: 9999;
+    width: 100% !important;
+    height: 100% !important;
+}
+#ai-guess {
+    font-size: 25px;
+    margin-top: 30px;
+}
+#confirm-help {
+    display: none;
+    width: 100px;
+    height: 30px;
+    margin-left: 30px;
+    border: none;
+    background-color: lightgreen;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#confirm-help:focus {
+    outline: none;
+}
+.reset-wrapper {
+    width: 800px;
+    height: 40px;
+    margin: auto;
+}
+.reset-wrapper button {
+    float: left;
+}
