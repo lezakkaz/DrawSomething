@@ -18,6 +18,10 @@ $(document).ready(function() {
                 window.location.href = "speed_draw";
             } else if(index == 1) {
                 window.location.href = "guess_draw";
+            } else if(index == 2) {
+                window.location.href = "draw_together";
+            } else if(index == 3) {
+                window.location.href = "about";
             }
         }
     );
