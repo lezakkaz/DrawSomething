@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Draw Together</title>
+    <link rel="stylesheet" href="../static/css/game.css">
+    <link rel="stylesheet" href="../static/css/together.css">
+    <link rel="stylesheet" href="../static/css/loading.css">
+</head>
+<body>
+    <div id="background">
+        <div id="game-wrapper" class="padding-50">
+            <button id="return-home"><img src="../static/resource/out.png" alt=""></button>
+            <div class="inner-game-header full-width">
+                <div class="game-info-wrapper">
+                    <span>Draw Together</span>
+                    <span>Don't draw alone... AI will be with you!</span>
+                </div>
+            </div>
+            <div class="game-contents-wrapper full-width">
+                <div class="reset-wrapper">
+                    <button class="reset-canvas">
+                        <img src="../static/resource/reset.png" alt="">
+                    </button>
+                </div>
+                <div class="canvas-wrapper">
+                    <canvas id="user-canvas"></canvas>
+                    <canvas id="ai-canvas"></canvas>
+                    <div id="ai-guess"><span id="guess-text"></span><button id="confirm-help">YES!</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../static/js/main.js"></script>
+    <!-- <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../static/model_autoencoder/lib/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="../static/model_autoencoder/lib/p5.svg.js"></script>
+    <script language="javascript" type="text/javascript" src="../static/model_autoencoder/lib/sketch_rnn.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+    <script src="../static/js/fabric.js"></script>
+    <script language="javascript" type="text/javascript" src="../static/js/together.js"></script>
+</body>
+</html>
