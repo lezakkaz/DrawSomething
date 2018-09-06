@@ -80,5 +80,6 @@ $.get("https://s3.ap-northeast-2.amazonaws.com/elice-project-drawsomething/word2
 
 function word2vec(word){
   var idx = wordVec.findIndex((item,idx) => {return item[0] === word});
-  console.log(wordVec[idx][1]);
+  var random = Math.floor((Math.random() * 10)) % 3;
+  return wordVec[idx + random][1];
 }
