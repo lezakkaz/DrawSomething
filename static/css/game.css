@@ -434,3 +434,61 @@ body,html{
     z-index: 9999;
     transition: 200ms;
 }
+
+/********** About **********/
+
+.adviser {
+    float: left;
+    width: 390px;
+    height: 245px;
+}
+.members {
+    position: absolute;
+    width: calc(100% - 100px);
+    height: 460px;
+    bottom: 50px;
+    font-size: 0;
+}
+.group-section {
+    display: inline-block;
+    width: 33.3333%;
+    height: 100%;
+    font-size: 15px;
+}
+.individual-section {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    padding: 15px 20px;
+}
+.adviser .individual-section {
+    height: calc(100% - 30px);
+}
+.section-wrapper {
+    width: 100%;
+    height: calc(100%  - 30px);
+}
+.intro-header {
+    font-size: 20px;
+    height: 30px;
+    text-align: left;
+}
+.photo-wrapper {
+    display: inline-block;
+    width: 140px;
+    height: 100%;
+}
+.photo-wrapper img {
+    width: 100%;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+.paragraph-wrapper {
+    position: relative;
+    vertical-align: top;
+    top: 50%;
+    display: inline-block;
+    width: calc(100% - 150px);
+    height: auto;
+    transform: translate(0,-50%);
+}
