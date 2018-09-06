@@ -3,11 +3,25 @@ var wordVec;
 var model;
 var canvas;
 var classNames = [];
-var canvas;
 var coords = [];
 var mousePressed = false;
-var text = document.getElementById("guess-text");
+var help_text = document.getElementById("guess-text");
 var confirm_button = document.getElementById("confirm-help");
+var model_raw_data;
+var guess_word;
+
+function getRawData(className) {
+    startLoading();
+    console.log("ajax called");
+    $.ajax({
+        dataType: "json",
+        url: "https://s3.ap-northeast-2.amazonaws.com/elice-project-drawsomething/"+ className +".vae.json",
+    }).done(function(data){
+        model_raw_data = JSON.stringify(data);
+        console.log("Data obtained");
+        setup();
+    });
+}
 
 $.get("https://s3.ap-northeast-2.amazonaws.com/elice-project-drawsomething/word2vec.json", function(data, status){
   wordVec = data;
@@ -17,10 +31,11 @@ function word2vec(word){
     var idx = wordVec.findIndex((item,idx) => {return item[0] === word});
     var random = Math.floor((Math.random() * 10)) % 3;
     if(typeof wordVec[idx+random] == 'undefined') {
-        text.textContent = "Sorry... I'm not catching you. Could you draw again?";
+        help_text.textContent = "Sorry... I'm not catching you. Could you draw again?";
         confirm_button.style.display = "none";
     } else {
         console.log(wordVec[idx+random][1]);
+        guess_word = wordVec[idx+random][1];
         confirm_button.style.display = "inline-block";
     }
 }
@@ -31,6 +46,11 @@ $(document).ready(function() {
             erase();
             text.textContent = "";
             confirm_button.style.display = "none";
+        }
+    );
+    $("#confirm-help").click(
+        function() {
+            getRawData(guess_word);
         }
     );
     $(function() {
@@ -135,7 +155,7 @@ function setTable(name) {
     if(name.includes("_")) {
         name = name.replace("_"," ");
     }
-    text.textContent = "Well.. I think you're trying to draw " + name + ". Can I draw with you?"; 
+    help_text.textContent = "Well.. I think you're trying to draw " + name + ". Can I draw with you?"; 
 }
 /*
 get the the class names 
